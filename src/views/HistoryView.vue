@@ -1,8 +1,13 @@
+<script setup lang="ts">
+import Epochs from '../components/Epochs.vue'
+</script>
+
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <main>
+    <Epochs />
+  </main>
 </template>
+
 
 <style>
 @media (min-width: 1024px) {
