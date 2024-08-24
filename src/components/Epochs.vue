@@ -1,28 +1,17 @@
 <script setup lang="ts">
-import WelcomeItem from './WelcomeItem.vue'
-import DocumentationIcon from './icons/IconDocumentation.vue'
-import ToolingIcon from './icons/IconTooling.vue'
-import EcosystemIcon from './icons/IconEcosystem.vue'
-import CommunityIcon from './icons/IconCommunity.vue'
-import SupportIcon from './icons/IconSupport.vue'
+import Epoch from './Epoch.vue'
 </script>
 
 <template>
-  <WelcomeItem>
-    <template #icon>
-      <DocumentationIcon />
-    </template>
+  <Epoch>
     <template #heading>Documentation</template>
 
     Vue’s
     <a href="https://vuejs.org/" target="_blank" rel="noopener">official documentation</a>
     provides you with all information you need to get started.
-  </WelcomeItem>
+  </Epoch>
 
-  <WelcomeItem>
-    <template #icon>
-      <ToolingIcon />
-    </template>
+  <Epoch>
     <template #heading>Tooling</template>
 
     This project is served and bundled with
@@ -39,12 +28,9 @@ import SupportIcon from './icons/IconSupport.vue'
     <br />
 
     More instructions are available in <code>README.md</code>.
-  </WelcomeItem>
+  </Epoch>
 
-  <WelcomeItem>
-    <template #icon>
-      <EcosystemIcon />
-    </template>
+  <Epoch>
     <template #heading>Ecosystem</template>
 
     Get official tools and libraries for your project:
@@ -55,12 +41,9 @@ import SupportIcon from './icons/IconSupport.vue'
     you need more resources, we suggest paying
     <a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">Awesome Vue</a>
     a visit.
-  </WelcomeItem>
+  </Epoch>
 
-  <WelcomeItem>
-    <template #icon>
-      <CommunityIcon />
-    </template>
+  <Epoch>
     <template #heading>Community</template>
 
     Got stuck? Ask your question on
@@ -73,16 +56,13 @@ import SupportIcon from './icons/IconSupport.vue'
     the official
     <a href="https://twitter.com/vuejs" target="_blank" rel="noopener">@vuejs</a>
     twitter account for latest news in the Vue world.
-  </WelcomeItem>
+  </Epoch>
 
-  <WelcomeItem>
-    <template #icon>
-      <SupportIcon />
-    </template>
+  <Epoch>
     <template #heading>Support Vue</template>
 
     As an independent project, Vue relies on community backing for its sustainability. You can help
     us by
     <a href="https://vuejs.org/sponsor/" target="_blank" rel="noopener">becoming a sponsor</a>.
-  </WelcomeItem>
+  </Epoch>
 </template>
