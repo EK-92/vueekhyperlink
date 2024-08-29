@@ -1,56 +1,102 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
+const menuOpen = ref(false)
 </script>
-
 <template>
-  <div class="wrapper">
-    <nav>
+  <menu>
+    <div class="list" v-if="menuOpen">
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/history">History</RouterLink>
-    </nav>
-  </div>
+    </div>
+    <div @click="menuOpen = !menuOpen" class="toggle"></div>
+  </menu>
 </template>
 
 <style scoped>
-nav {
-  width: 100%;
-  font-size: 12px;
+menu {
+  position: fixed;
+  bottom: 7.5vmin;
+  right: 5vw;
+  display: grid;
+  grid-template-columns: 1fr 7.5vw;
+  font-size: 4.5vw;
+}
+.toggle {
   text-align: center;
-  margin-top: 2rem;
+  text-decoration: none;
+  background: #000;
+  width: 7.5vw;
+  height: 7.5vw;
+  grid-column-start: 2;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 auto;
+  box-shadow: -1px -1px 1px 2px #424242;
+  &:active,
+  &:focus,
+  &:hover {
+    box-shadow: -1px -1px 1px 2px #7f7f7f;
+  }
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+.list {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 80vw;
+  a {
+    align-self: center;
+    justify-self: center;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    color: #7cb342;
+    background: #313131;
+    box-shadow:
+      2px 2px 2px #111,
+      -1px -1px 1px #111;
+    cursor: pointer;
+    &:hover {
+      background: #111;
+    }
+  }
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+@media (max-width: 639px) {
+  .list {
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 10vw;
   }
 
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
+  .toggle {
+    width: 10vw;
+    height: 10vw;
+    display: block;
+    margin: 0 auto;
+    grid-column-start: 1;
+  }
 
-    padding: 1rem 0;
-    margin-top: 1rem;
+  menu {
+    width: 100vw;
+    right: 0;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1199px) {
+  menu {
+    grid-template-columns: 1fr 15vw;
+  }
+  .list {
+    font-size: 2vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  .list {
+    font-size: 1.5vw;
   }
 }
 </style>
