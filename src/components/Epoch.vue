@@ -3,9 +3,9 @@ const props = defineProps(['content'])
 </script>
 
 <template>
-  <a :['href']=content.link target="blank">
+  <a :href=content.link target="blank">
     <div class="img-holder">
-      <img :['src']=content.pic :['alt']=content.header />
+      <img :src=content.pic :alt=content.header />
     </div>
     <h4>{{ content.header }}</h4>
     <p class="subheader">

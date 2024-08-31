@@ -62,7 +62,7 @@ const cards = ref([
 
 <template>
   <div class="cards-holder">
-    <Epoch v-for="card in cards" :content="card"> </Epoch>
+    <Epoch v-for="card in cards" :content="card" :key="card.header"> </Epoch>
   </div>
 </template>
 
