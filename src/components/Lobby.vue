@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div className="profile">
+  <div class="profile">
     <div class="name">
       <img alt="logo" src="@/assets/logo.png" />
       <h1>Efim Krakhalev (EK)</h1>
@@ -32,9 +32,12 @@
     margin: auto;
     filter: drop-shadow(-1px 1px 2px #757575) drop-shadow(2px -2px 3px #757575);
   }
-  h2,
-  h3,
-  p {
+  h1 {
+    line-height: 8vw;
+    font-size: 6vw;
+    margin: 0;
+  }
+  h3 {
     line-height: 7vw;
     font-size: 5vw;
     margin: 0;
@@ -73,9 +76,11 @@
 
 @media (min-width: 640px) and (max-width: 1199px) {
   .name {
-    h2,
-    h3,
-    p {
+    h1 {
+      line-height: 6vw;
+      font-size: 4vw;
+    }
+    h3 {
       line-height: 5vw;
       font-size: 3vw;
     }
@@ -84,9 +89,11 @@
 
 @media (min-width: 1200px) {
   .name {
-    h2,
-    h3,
-    p {
+    h1 {
+      line-height: 4vw;
+      font-size: 2.5vw;
+    }
+    h3{
       line-height: 3vw;
       font-size: 1.8vw;
     }
