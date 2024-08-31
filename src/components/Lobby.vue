@@ -93,7 +93,7 @@
       line-height: 4vw;
       font-size: 2.5vw;
     }
-    h3{
+    h3 {
       line-height: 3vw;
       font-size: 1.8vw;
     }
