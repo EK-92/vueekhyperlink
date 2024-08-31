@@ -8,13 +8,4 @@ import Epochs from '../components/Epochs.vue'
   </main>
 </template>
 
-
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+<style scoped></style>

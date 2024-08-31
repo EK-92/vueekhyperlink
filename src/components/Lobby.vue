@@ -1,41 +1,12 @@
-<script setup lang="ts">
-// defineProps<{
-// }>()
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <div class="greetings">
-    <h1 class="green">Efim Krakhalev (EK)</h1>
+  <div>
+    <h1>Efim Krakhalev (EK)</h1>
     <h1>Site Reliability Engineer</h1>
     <h3>Ex-front-end Developer</h3>
     <h3>Location: Toronto, ON</h3>
   </div>
 </template>
 
-<style scoped>
-h1, h3 {
-  font-family: Lato;
-}
-h1 {
-  font-weight: 500;
-  font-size: 2.6rem;
-  position: relative;
-  top: -10px;
-}
-
-h3 {
-  font-size: 1.2rem;
-}
-
-.greetings h1,
-.greetings h3 {
-  text-align: center;
-}
-
-@media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
-    text-align: left;
-  }
-}
-</style>
+<style scoped></style>
