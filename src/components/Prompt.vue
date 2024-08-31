@@ -17,12 +17,6 @@ const props = defineProps(['input'])
   margin: 0 auto;
   background: #171717;
   max-width: 1400px;
-  &.alt {
-    background: #e0e0e0;
-    span {
-      color: #212121;
-    }
-  }
   span {
     color: #eee;
   }
