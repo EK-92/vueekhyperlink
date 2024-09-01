@@ -2,12 +2,15 @@
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 const menuOpen = ref(false)
+const onHistoryPage = true;
 </script>
 <template>
   <menu>
     <div class="list" v-if="menuOpen">
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/history">History</RouterLink>
+      <button v-if="onHistoryPage"><p>&#10702;</p></button>
+      <!-- <button v-if="onHistoryPage"><p class="rectangles">&#9580;</p></button> -->
     </div>
     <div @click="menuOpen = !menuOpen" class="toggle"></div>
   </menu>
@@ -23,6 +26,7 @@ menu {
   font-size: 4.5vw;
   z-index: 99;
 }
+
 .toggle {
   text-align: center;
   text-decoration: none;
@@ -41,6 +45,18 @@ menu {
   }
 }
 
+button {
+  border: none;
+}
+
+p {
+  margin: 0;
+}
+
+.rectangles {
+  transform: rotate(-90deg);
+}
+
 .list {
   padding: 0;
   list-style: none;
@@ -48,7 +64,7 @@ menu {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 80vw;
-  a {
+  button, a {
     align-self: center;
     justify-self: center;
     padding: 1rem 2rem;
