@@ -1,25 +1,22 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import { RouterLink, useRoute } from 'vue-router'
-const menuOpen = ref(false)
-const triangularLayout = ref(false)
-const location = useRoute()
-const onHistoryPage = location.path.slice(1) === 'history'
-const showTrianglesButton = computed(() => onHistoryPage && triangularLayout.value === false)
-const showRectanglesButton = computed(() => onHistoryPage && triangularLayout.value === true)
-function toggleLayout() {
-  triangularLayout.value = !triangularLayout.value
-}
+// import { ref, computed } from 'vue'
+import { RouterLink } from 'vue-router'
+import { storeToRefs } from 'pinia'
+
+import { genericStore } from '@/stores/generic'
+const store = genericStore()
+const { darkTheme, isMenuOpen, showRectanglesButton, showTrianglesButton } = storeToRefs(store)
+const { toggleLayout, toggleTheme, toggleMenu } = store
 </script>
 <template>
   <menu>
-    <div class="list" v-if="menuOpen">
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/history">History</RouterLink>
+    <div class="list" v-if="isMenuOpen">
+      <RouterLink to="/" @click="toggleMenu">Home</RouterLink>
+      <RouterLink to="/history" @click="toggleMenu">History</RouterLink>
       <button v-if="showTrianglesButton" @click="toggleLayout"><p>&#10702;</p></button>
       <button v-if="showRectanglesButton" @click="toggleLayout"><p class="rectangles">&#9580;</p></button>
     </div>
-    <div @click="menuOpen = !menuOpen" class="toggle"></div>
+    <div @click="toggleMenu" class="toggle"></div>
   </menu>
 </template>
 
