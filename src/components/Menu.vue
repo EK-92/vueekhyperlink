@@ -12,6 +12,7 @@ const { toggleLayout, toggleTheme, toggleMenu } = store
     <div class="list" v-if="isMenuOpen">
       <RouterLink to="/" @click="toggleMenu">Home</RouterLink>
       <RouterLink to="/history" @click="toggleMenu">History</RouterLink>
+      <button @click="toggleTheme"><p>&#9703;</p></button>
       <button v-if="showTrianglesButton" @click="toggleLayout"><p>&#10702;</p></button>
       <button v-if="showRectanglesButton" @click="toggleLayout"><p class="rectangles">&#9580;</p></button>
     </div>
@@ -64,8 +65,8 @@ p {
   padding: 0;
   list-style: none;
   margin: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  justify-content: space-around;
   width: 80vw;
   button,
   a {
@@ -86,29 +87,33 @@ p {
 }
 
 @media (max-width: 639px) {
-  .list {
-    grid-template-columns: 1fr 1fr;
-    grid-row-gap: 10vw;
+  menu {
   }
-
+  .list {
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100vw;
+    a, button {
+      margin-bottom: 2vw;
+    }
+  }
+  
   .toggle {
     width: 10vw;
     height: 10vw;
-    display: block;
+    display: flex;
     margin: 0 auto;
-    grid-column-start: 1;
   }
-
+  
   menu {
     width: 100vw;
     right: 0;
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
 }
 
 @media (min-width: 640px) and (max-width: 1199px) {
   menu {
-    grid-template-columns: 1fr 15vw;
   }
   .list {
     font-size: 2vw;
