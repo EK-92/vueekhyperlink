@@ -12,6 +12,7 @@ const { toggleLayout, toggleTheme, toggleMenu } = store
     <div class="list" v-if="isMenuOpen">
       <RouterLink to="/" @click="toggleMenu">Home</RouterLink>
       <RouterLink to="/history" @click="toggleMenu">History</RouterLink>
+      <button @click="toggleTheme"><p>&#9703;</p></button>
       <button v-if="showTrianglesButton" @click="toggleLayout"><p>&#10702;</p></button>
       <button v-if="showRectanglesButton" @click="toggleLayout"><p class="rectangles">&#9580;</p></button>
     </div>
