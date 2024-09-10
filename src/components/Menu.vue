@@ -1,16 +1,23 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { RouterLink } from 'vue-router'
+import { ref, computed } from 'vue'
+import { RouterLink, useRoute } from 'vue-router'
 const menuOpen = ref(false)
-const onHistoryPage = true;
+const triangularLayout = ref(false)
+const location = useRoute()
+const onHistoryPage = location.path.slice(1) === 'history'
+const showTrianglesButton = computed(() => onHistoryPage && triangularLayout.value === false)
+const showRectanglesButton = computed(() => onHistoryPage && triangularLayout.value === true)
+function toggleLayout() {
+  triangularLayout.value = !triangularLayout.value
+}
 </script>
 <template>
   <menu>
     <div class="list" v-if="menuOpen">
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/history">History</RouterLink>
-      <button v-if="onHistoryPage"><p>&#10702;</p></button>
-      <!-- <button v-if="onHistoryPage"><p class="rectangles">&#9580;</p></button> -->
+      <button v-if="showTrianglesButton" @click="toggleLayout"><p>&#10702;</p></button>
+      <button v-if="showRectanglesButton" @click="toggleLayout"><p class="rectangles">&#9580;</p></button>
     </div>
     <div @click="menuOpen = !menuOpen" class="toggle"></div>
   </menu>
@@ -64,7 +71,8 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 80vw;
-  button, a {
+  button,
+  a {
     align-self: center;
     justify-self: center;
     padding: 1rem 2rem;
