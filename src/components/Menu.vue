@@ -83,6 +83,12 @@ p {
       background: #111;
     }
   }
+  .router-link-active {
+    display: none;
+    color: #7F7F7F;
+    pointer-events: none;
+    cursor: default;
+  }
 }
 
 @media (max-width: 639px) {
