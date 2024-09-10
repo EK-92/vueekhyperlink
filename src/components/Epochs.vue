@@ -62,8 +62,43 @@ const cards = ref([
 
 <template>
   <div class="cards-holder">
-    <Epoch v-for="card in cards" :content="card"> </Epoch>
+    <Epoch v-for="(card, i) in cards" :content="card" :key="i"></Epoch>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.cards-holder {
+  display: grid;
+}
+
+@media (max-width: 639px) {
+  .cards-holder {
+    grid-template-columns: 1fr;
+    min-height: calc(100vh - 5vw - 2rem);
+  }
+}
+
+@media (min-width: 640px) {
+  .cards-holder {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1199px) {
+  .cards-holder {
+    margin-top: calc(50vh - 8rem - 8.8vw);
+  }
+}
+
+@media (min-width: 1200px) {
+  .cards-holder {
+    margin: calc(50vh - 8rem - 6.4vw) auto 0;
+  }
+}
+
+@media (min-width: 1400px) {
+  .cards-holder {
+    max-width: 1400px;
+  }
+}
+</style>

@@ -21,6 +21,7 @@ menu {
   display: grid;
   grid-template-columns: 1fr 7.5vw;
   font-size: 4.5vw;
+  z-index: 99;
 }
 .toggle {
   text-align: center;
@@ -61,6 +62,12 @@ menu {
     &:hover {
       background: #111;
     }
+  }
+  .router-link-active {
+    display: none;
+    color: #7F7F7F;
+    pointer-events: none;
+    cursor: default;
   }
 }
 
