@@ -91,7 +91,7 @@ p {
   }
   .router-link-active {
     display: none;
-    color: #7F7F7F;
+    color: #7f7f7f;
     pointer-events: none;
     cursor: default;
   }
@@ -111,7 +111,9 @@ menu.light {
   .list button {
     color: #212121;
     background: #eee;
-    box-shadow: 2px 2px 2px #bdbdbd, -1px -1px 1px #bdbdbd;
+    box-shadow:
+      2px 2px 2px #bdbdbd,
+      -1px -1px 1px #bdbdbd;
     &:hover {
       background: #fff;
     }

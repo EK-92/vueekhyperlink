@@ -12,7 +12,6 @@ const { darkTheme } = storeToRefs(store)
 const themeClass = computed(() => ({
   light: !darkTheme.value
 }))
-
 </script>
 
 <template>
@@ -24,11 +23,11 @@ const themeClass = computed(() => ({
 
 <style scoped>
 div {
-  color: #7CB342;
+  color: #7cb342;
   background: #212121;
 }
 div.light {
-  color: #558B2F;
+  color: #558b2f;
   background: #f2f2f2;
 }
 </style>

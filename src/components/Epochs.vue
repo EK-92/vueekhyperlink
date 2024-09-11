@@ -1,6 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { storeToRefs } from 'pinia'
+import { ref, computed } from 'vue'
+import { genericStore } from '@/stores/generic'
 import Epoch from './Epoch.vue'
+
+const store = genericStore()
+const { triangularLayout } = storeToRefs(store)
+
+const trianglesClass = computed(() => ({
+  triangles: triangularLayout.value
+}))
 
 const cards = ref([
   {
@@ -20,7 +29,7 @@ const cards = ref([
   {
     header: 'Eligible to work in Canada',
     date: '2016-current',
-    link: '#',
+    link: '',
     pic: '/src/assets/cic.png'
   },
   {
@@ -47,13 +56,13 @@ const cards = ref([
   {
     header: 'Permanent Resident of Canada',
     date: '2022-current',
-    link: '#',
+    link: '',
     pic: '/src/assets/cic.png'
   },
   {
     header: '...',
     subheader: '...',
-    link: '#',
+    link: '',
     date: '...',
     pic: '/src/assets/cicShaded.png'
   }
@@ -61,7 +70,7 @@ const cards = ref([
 </script>
 
 <template>
-  <div class="cards-holder">
+  <div class="cards-holder" :class="trianglesClass">
     <Epoch v-for="(card, i) in cards" :content="card" :key="i"></Epoch>
   </div>
 </template>
@@ -69,12 +78,19 @@ const cards = ref([
 <style scoped>
 .cards-holder {
   display: grid;
+  .triangles {
+    margin-top: 4.03vw;
+    min-height: calc(100vh - 6.03vw - 2rem);
+  }
 }
 
 @media (max-width: 639px) {
   .cards-holder {
     grid-template-columns: 1fr;
     min-height: calc(100vh - 5vw - 2rem);
+  }
+  .cards-holder.triangles {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -94,11 +110,17 @@ const cards = ref([
   .cards-holder {
     margin: calc(50vh - 8rem - 6.4vw) auto 0;
   }
+  .cards-holder.triangles {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 @media (min-width: 1400px) {
   .cards-holder {
     max-width: 1400px;
+  }
+  .cards-holder.triangles {
+    max-width: unset;
   }
 }
 </style>
