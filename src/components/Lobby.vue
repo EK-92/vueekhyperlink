@@ -1,12 +1,25 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
+import { genericStore } from '@/stores/generic'
+
+defineProps(['input'])
+
+const store = genericStore()
+const { darkTheme } = storeToRefs(store)
+
+const themeClass = computed(() => ({
+  light: !darkTheme.value
+}))
+</script>
 
 <template>
-  <div class="profile">
+  <div class="profile" :class="themeClass">
     <div class="name">
       <img alt="logo" src="@/assets/logo.png" />
       <h1>Efim Krakhalev (EK)</h1>
       <h1>Site Reliability Engineer</h1>
-      <h3>Ex-front-end Developer</h3>
+      <h3>Also Front-end Developer</h3>
       <h3>Location: Toronto, ON</h3>
     </div>
     <div class="silhouette" />
@@ -30,7 +43,7 @@
     max-width: 120px;
     padding: 1rem;
     margin: auto;
-    filter: drop-shadow(-1px 1px 2px #757575) drop-shadow(2px -2px 3px #757575);
+    filter: drop-shadow(-1px 1px 2px #bdbdbd) drop-shadow(2px -2px 3px #bdbdbd);
   }
   h1 {
     line-height: 8vw;
@@ -51,6 +64,16 @@
   height: calc(100vh - 1.5vw - 2rem);
   grid-column-start: 2;
   grid-row: 1 / 3;
+}
+
+.light {
+  .name img {
+    filter: drop-shadow(-1px 1px 2px #757575) drop-shadow(2px -2px 3px #757575);
+  }
+  .silhouette {
+    background: no-repeat center/90% url('@/assets/silhouette_dark.png');
+    filter: drop-shadow(2px 1px 2px #bdbdbd) drop-shadow(0px 0px 1px #bdbdbd);
+  }
 }
 
 @media (max-width: 639px) {

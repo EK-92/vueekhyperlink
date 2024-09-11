@@ -1,15 +1,27 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
-const menuOpen = ref(false)
+import { storeToRefs } from 'pinia'
+import { genericStore } from '@/stores/generic'
+import { computed } from 'vue'
+
+const store = genericStore()
+const { darkTheme, isMenuOpen, showRectanglesButton, showTrianglesButton } = storeToRefs(store)
+const { toggleLayout, toggleTheme, toggleMenu } = store
+
+const themeClass = computed(() => ({
+  light: !darkTheme.value
+}))
 </script>
 <template>
-  <menu>
-    <div class="list" v-if="menuOpen">
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/history">History</RouterLink>
+  <menu :class="themeClass">
+    <div class="list" v-if="isMenuOpen">
+      <RouterLink to="/" @click="toggleMenu">Home</RouterLink>
+      <RouterLink to="/history" @click="toggleMenu">History</RouterLink>
+      <button @click="toggleTheme"><p>&#9703;</p></button>
+      <button v-if="showTrianglesButton" @click="toggleLayout"><p>&#10702;</p></button>
+      <button v-if="showRectanglesButton" @click="toggleLayout"><p class="rectangles">&#9580;</p></button>
     </div>
-    <div @click="menuOpen = !menuOpen" class="toggle"></div>
+    <div @click="toggleMenu" class="toggle"></div>
   </menu>
 </template>
 
@@ -23,6 +35,7 @@ menu {
   font-size: 4.5vw;
   z-index: 99;
 }
+
 .toggle {
   text-align: center;
   text-decoration: none;
@@ -41,6 +54,18 @@ menu {
   }
 }
 
+button {
+  border: none;
+}
+
+p {
+  margin: 0;
+}
+
+.rectangles {
+  transform: rotate(-90deg);
+}
+
 .list {
   padding: 0;
   list-style: none;
@@ -48,6 +73,7 @@ menu {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 80vw;
+  button,
   a {
     align-self: center;
     justify-self: center;
@@ -65,9 +91,32 @@ menu {
   }
   .router-link-active {
     display: none;
-    color: #7F7F7F;
+    color: #7f7f7f;
     pointer-events: none;
     cursor: default;
+  }
+}
+
+menu.light {
+  .toggle {
+    background: #fff;
+    box-shadow: 1px 1px 1px 2px #7f7f7f;
+    &:active,
+    &:focus,
+    &:hover {
+      box-shadow: 1px 1px 1px 2px #212121;
+    }
+  }
+  .list a,
+  .list button {
+    color: #212121;
+    background: #eee;
+    box-shadow:
+      2px 2px 2px #bdbdbd,
+      -1px -1px 1px #bdbdbd;
+    &:hover {
+      background: #fff;
+    }
   }
 }
 
