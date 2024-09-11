@@ -176,19 +176,6 @@ const cardClass = computed(() => ({
   }
 }
 
-.light {
-  box-shadow: 2px 2px 2px #bdbdbd, -1px -1px 1px #bdbdbd;
-  background: #e8e8e8;
-  &:hover {
-    background: #fff;
-  }
-  p {
-    .date {
-      border: 1px solid rgba(0, 0, 0, 0.4);
-    }
-  }
-}
-
 .locked {
   color: #ef9a9a;
   background: #333;
