@@ -1,9 +1,20 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
+import { genericStore } from '@/stores/generic'
+
 defineProps(['input'])
+
+const store = genericStore()
+const { darkTheme } = storeToRefs(store)
+
+const themeClass = computed(() => ({
+  light: !darkTheme.value
+}))
 </script>
 
 <template>
-  <p class="prompt"><span>user@ek:~$</span> {{ input }}</p>
+  <p class="prompt" :class="themeClass"><span>user@ek:~$</span> {{ input }}</p>
 </template>
 
 <style scoped>
@@ -19,6 +30,13 @@ defineProps(['input'])
   max-width: 1400px;
   span {
     color: #eee;
+  }
+}
+
+.light {
+  background: #e0e0e0;
+  span {
+    color: #212121;
   }
 }
 
