@@ -122,24 +122,6 @@ menu.light {
 
 @media (max-width: 639px) {
   .list {
-    grid-template-columns: 1fr 1fr;
-    grid-row-gap: 10vw;
-  }
-  .list a,
-  .list button {
-    color: #212121;
-    background: #eee;
-    box-shadow: 2px 2px 2px #bdbdbd, -1px -1px 1px #bdbdbd;
-    &:hover {
-      background: #fff;
-    }
-  }
-}
-
-@media (max-width: 639px) {
-  menu {
-  }
-  .list {
     flex-wrap: wrap;
     flex-direction: column;
     width: 100vw;
@@ -147,14 +129,14 @@ menu.light {
       margin-bottom: 2vw;
     }
   }
-  
+
   .toggle {
     width: 10vw;
     height: 10vw;
     display: flex;
     margin: 0 auto;
   }
-  
+
   menu {
     width: 100vw;
     right: 0;
