@@ -1,17 +1,23 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import { storeToRefs } from 'pinia'
-
 import { genericStore } from '@/stores/generic'
+import { computed } from 'vue'
+
 const store = genericStore()
 const { darkTheme, isMenuOpen, showRectanglesButton, showTrianglesButton } = storeToRefs(store)
 const { toggleLayout, toggleTheme, toggleMenu } = store
+
+const themeClass = computed(() => ({
+  light: !darkTheme.value
+}))
 </script>
 <template>
-  <menu>
+  <menu :class="themeClass">
     <div class="list" v-if="isMenuOpen">
       <RouterLink to="/" @click="toggleMenu">Home</RouterLink>
       <RouterLink to="/history" @click="toggleMenu">History</RouterLink>
+      <button @click="toggleTheme"><p>&#9703;</p></button>
       <button v-if="showTrianglesButton" @click="toggleLayout"><p>&#10702;</p></button>
       <button v-if="showRectanglesButton" @click="toggleLayout"><p class="rectangles">&#9580;</p></button>
     </div>
@@ -88,6 +94,27 @@ p {
     color: #7F7F7F;
     pointer-events: none;
     cursor: default;
+  }
+}
+
+menu.light {
+  .toggle {
+    background: #fff;
+    box-shadow: 1px 1px 1px 2px #7f7f7f;
+    &:active,
+    &:focus,
+    &:hover {
+      box-shadow: 1px 1px 1px 2px #212121;
+    }
+  }
+  .list a,
+  .list button {
+    color: #212121;
+    background: #eee;
+    box-shadow: 2px 2px 2px #bdbdbd, -1px -1px 1px #bdbdbd;
+    &:hover {
+      background: #fff;
+    }
   }
 }
 
