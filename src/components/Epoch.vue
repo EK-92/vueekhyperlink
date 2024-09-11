@@ -1,9 +1,20 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
+import { genericStore } from '@/stores/generic'
+
 defineProps(['content'])
+
+const store = genericStore()
+const { darkTheme } = storeToRefs(store)
+
+const themeClass = computed(() => ({
+  light: !darkTheme.value
+}))
 </script>
 
 <template>
-  <a :href=content.link class="card" target="blank">
+  <a :href=content.link class="card" :class="themeClass" target="blank">
     <div class="img-holder">
       <img :src=content.pic :alt=content.header />
     </div>
@@ -62,6 +73,19 @@ defineProps(['content'])
     transform: translate(-50%, -50%);
     filter: drop-shadow(0.1vw 0.1vw 0.2vw #7f7f7f)
       drop-shadow(-0.1vw 0.1vw 0.2vw #7f7f7f);
+  }
+}
+
+.light {
+  box-shadow: 2px 2px 2px #bdbdbd, -1px -1px 1px #bdbdbd;
+  background: #e8e8e8;
+  &:hover {
+    background: #fff;
+  }
+  p {
+    .date {
+      border: 1px solid rgba(0, 0, 0, 0.4);
+    }
   }
 }
 
