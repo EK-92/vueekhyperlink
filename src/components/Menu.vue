@@ -91,7 +91,7 @@ p {
   }
   .router-link-active {
     display: none;
-    color: #7F7F7F;
+    color: #7f7f7f;
     pointer-events: none;
     cursor: default;
   }
@@ -106,6 +106,24 @@ menu.light {
     &:hover {
       box-shadow: 1px 1px 1px 2px #212121;
     }
+  }
+  .list a,
+  .list button {
+    color: #212121;
+    background: #eee;
+    box-shadow:
+      2px 2px 2px #bdbdbd,
+      -1px -1px 1px #bdbdbd;
+    &:hover {
+      background: #fff;
+    }
+  }
+}
+
+@media (max-width: 639px) {
+  .list {
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 10vw;
   }
   .list a,
   .list button {

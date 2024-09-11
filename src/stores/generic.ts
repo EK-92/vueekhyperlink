@@ -23,5 +23,15 @@ export const genericStore = defineStore('theme', () => {
     isMenuOpen.value = !isMenuOpen.value
   }
 
-  return { darkTheme, isMenuOpen, onHistoryPage, showRectanglesButton, showTrianglesButton, triangularLayout, toggleLayout, toggleTheme, toggleMenu }
+  return {
+    darkTheme,
+    isMenuOpen,
+    onHistoryPage,
+    showRectanglesButton,
+    showTrianglesButton,
+    triangularLayout,
+    toggleLayout,
+    toggleTheme,
+    toggleMenu
+  }
 })
