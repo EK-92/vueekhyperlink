@@ -4,6 +4,13 @@ import { ref, computed } from 'vue'
 import { genericStore } from '@/stores/generic'
 import Epoch from './Epoch.vue'
 
+import SheridanPic from '@/assets/sheridan.png'
+import TSLPic from '@/assets/tsl.svg'
+import CICPic from '@/assets/cic.png'
+import CICShadedPic from '@/assets/cicShaded.png'
+import EmeritusPic from '@/assets/emeritus.png'
+import RewardopsPic from '@/assets/rewardops.png'
+
 const store = genericStore()
 const { triangularLayout } = storeToRefs(store)
 
@@ -17,54 +24,54 @@ const cards = ref([
     subheader: 'Ontario College Diploma',
     link: 'https://www.sheridancollege.ca/programs/computer-systems-technician-software-engineering',
     date: '2016',
-    pic: '/assets/sheridan.png'
+    pic: SheridanPic
   },
   {
     header: 'Internship @ The Silverlogic',
     subheader: 'Front-end development',
     link: 'https://tsl.io/',
     date: '2016-2017',
-    pic: '/assets/tsl.svg'
+    pic: TSLPic
   },
   {
     header: 'Eligible to work in Canada',
     date: '2016-current',
     link: '',
-    pic: '/assets/cic.png'
+    pic: CICPic
   },
   {
     header: 'Employment @ Emeritus Financial',
     subheader: 'Front-end development',
     link: 'http://emeritusfinancial.com/',
     date: '2017-2018',
-    pic: '/assets/emeritus.png'
+    pic: EmeritusPic
   },
   {
     header: 'Employment @ RewardOps',
     subheader: 'Front-end development',
     link: 'https://rewardops.com/',
     date: '2018-2021',
-    pic: '/assets/rewardops.png'
+    pic: RewardopsPic
   },
   {
     header: 'Employment @ RewardOps',
     subheader: 'SRE',
     link: 'https://rewardops.com/',
     date: '2021-2023',
-    pic: '/assets/rewardops.png'
+    pic: RewardopsPic
   },
   {
     header: 'Permanent Resident of Canada',
     date: '2022-current',
     link: '',
-    pic: '/assets/cic.png'
+    pic: CICPic
   },
   {
     header: '...',
     subheader: '...',
     link: '',
     date: '...',
-    pic: '/assets/cicShaded.png'
+    pic: CICShadedPic
   }
 ])
 </script>
