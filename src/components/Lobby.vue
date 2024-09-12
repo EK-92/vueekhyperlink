@@ -3,6 +3,8 @@ import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import { genericStore } from '@/stores/generic'
 
+import logo from "@/assets/logo.png";
+
 defineProps(['input'])
 
 const store = genericStore()
@@ -16,7 +18,7 @@ const themeClass = computed(() => ({
 <template>
   <div class="profile" :class="themeClass">
     <div class="name">
-      <img alt="logo" src="@/assets/logo.png" />
+      <img alt="logo" :src="logo" />
       <h1>Efim Krakhalev (EK)</h1>
       <h1>Site Reliability Engineer</h1>
       <h3>Also Front-end Developer</h3>
