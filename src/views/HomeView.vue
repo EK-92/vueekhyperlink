@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Lobby from '../components/Lobby.vue'
+import Lobby from '@/components/Lobby.vue'
 import Prompt from '@/components/Prompt.vue'
 </script>
 
