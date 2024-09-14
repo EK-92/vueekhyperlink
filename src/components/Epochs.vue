@@ -2,7 +2,7 @@
 import { storeToRefs } from 'pinia'
 import { ref, computed } from 'vue'
 import { genericStore } from '@/stores/generic'
-import Epoch from './Epoch.vue'
+import Epoch from '@/components/Epoch.vue'
 
 import SheridanPic from '@/assets/sheridan.png'
 import TSLPic from '@/assets/tsl.svg'

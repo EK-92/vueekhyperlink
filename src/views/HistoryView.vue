@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Epochs from '../components/Epochs.vue'
-import Prompt from '@/components/Prompt.vue';
+import Epochs from '@/components/Epochs.vue'
+import Prompt from '@/components/Prompt.vue'
 </script>
 
 <template>
