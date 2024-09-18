@@ -19,12 +19,12 @@ const themeClass = computed(() => ({
 <template>
   <div class="inspirations page" :class="themeClass">
     <div class="person">
-      <p>Yes, you, the one reading this, you inspire me to improve. I don't know who you are, but I am grateful nonetheless.</p>
       <img alt="you" :src="you" />
+      <p>Yes, you, the one reading this, you inspire me to improve. I don't know who you are, but I am grateful nonetheless.</p>
     </div>
     <div class="person">
-      <p>Linux Torvalds gave life to git version control system and of course Linux kernel, which he maintains to this day. Among the kernel mail threads he was part of my favorite one is <a href="https://lkml.org/lkml/2017/11/21/356" target="blank">Do no harm</a></p>
       <img alt="Linus Torvalds" :src="tux" />
+      <p>Linux Torvalds gave life to git version control system and of course Linux kernel, which he maintains to this day. Among the kernel mail threads he was part of my favorite one is <a href="https://lkml.org/lkml/2017/11/21/356" target="blank">Do no harm</a></p>
     </div>
   </div>
 </template>
@@ -35,13 +35,14 @@ const themeClass = computed(() => ({
 }
 .person {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   grid-column-gap: 0;
   text-align: center;
-  max-width: 80%;
+  max-width: 70%;
   margin: 5% 10% 0;
   img {
     max-width: 25vmin;
+    max-height: 25vmin;
     margin: 2rem;
     place-self: center;
   }
