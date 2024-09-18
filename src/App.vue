@@ -3,7 +3,7 @@ import { RouterView } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 
-import Menu from './components/Menu.vue'
+import Menu from '@/components/Menu.vue'
 import { genericStore } from '@/stores/generic'
 
 const store = genericStore()
