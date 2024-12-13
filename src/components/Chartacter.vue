@@ -20,16 +20,31 @@
     data() {
       return {
         data: {
-          labels: ['Luck', 'Intuition', 'Intellect', 'Persistence', 'Energy', 'Resourcefulness', 'Hugs'],
+          labels: ['Luck', 'Intuition', 'Intellect', 'Persistence', 'Energy', 'Resourcefulness', 'Ambition', 'Patience'],
           datasets: [{
-            label: 'of 10',
-            data: [8, 7, 6, 9, 8, 10, 1],
+            data: [8, 7, 6, 9, 8, 10, 5, 8],
             backgroundColor: '#7cb342'
           }]
         },
         options: {
           responsive: true,
           indexAxis: 'y',
+          scales: {
+            y: {
+              ticks: { color: '#7cb342', beginAtZero: true }
+            },
+            x: {
+              ticks: { color: '#7cb342', beginAtZero: true }
+            }
+          },
+          plugins: {
+            legend: {
+              display: false
+            },
+            tooltip: {
+              enabled: false
+            }
+          }
         }
       }
     }

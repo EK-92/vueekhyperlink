@@ -38,8 +38,8 @@ const themeClass = computed(() => ({
 }
 
 .name {
-  margin: 0 auto;
-  /* margin: calc(50vh - 2rem - 6.8vw) auto 0; */
+  /* margin: 0 auto; */
+  margin: calc(50vh - 25vh - 2rem - 6.8vw) auto 0;
   display: grid;
   grid-template-columns: 12vw 1fr;
   img {
@@ -63,6 +63,8 @@ const themeClass = computed(() => ({
   }
 
   canvas {
+    height: 50vh !important;
+    width: 50vw !important;
     margin-top: 1rem;
   }
 }
@@ -85,7 +87,7 @@ const themeClass = computed(() => ({
   }
 }
 
-@media (max-width: 639px) {
+@media (max-width: 719px) {
   .profile {
     grid-template-columns: 1fr;
     min-height: calc(100vh - 5vw - 2rem);
@@ -104,6 +106,10 @@ const themeClass = computed(() => ({
       grid-row-end: 2;
       width: 90px;
       margin: 0 auto;
+    }
+    canvas {
+      width: 80vw !important;
+      margin-bottom: 10vh;
     }
   }
 }

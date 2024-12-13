@@ -4,6 +4,8 @@ import { storeToRefs } from 'pinia'
 import { genericStore } from '@/stores/generic'
 import { computed } from 'vue'
 
+import menu from "@/assets/menu.png";
+
 const store = genericStore()
 const { darkTheme, isMenuOpen, showRectanglesButton, showTrianglesButton } = storeToRefs(store)
 const { toggleLayout, toggleTheme, toggleMenu } = store
@@ -11,17 +13,23 @@ const { toggleLayout, toggleTheme, toggleMenu } = store
 const themeClass = computed(() => ({
   light: !darkTheme.value
 }))
+const listClass = computed(() => ({
+  long: showTrianglesButton.value || showRectanglesButton.value,
+  list: isMenuOpen.value
+}))
 </script>
 <template>
   <menu :class="themeClass">
-    <div class="list" v-if="isMenuOpen">
+    <div :class="listClass" v-if="isMenuOpen">
       <RouterLink to="/" @click="toggleMenu">Home</RouterLink>
       <RouterLink to="/history" @click="toggleMenu">History</RouterLink>
       <button @click="toggleTheme"><p>&#9703;</p></button>
       <button v-if="showTrianglesButton" @click="toggleLayout"><p>&#10702;</p></button>
       <button v-if="showRectanglesButton" @click="toggleLayout"><p class="rectangles">&#9580;</p></button>
     </div>
-    <div @click="toggleMenu" class="toggle"></div>
+    <div @click="toggleMenu" class="toggle">
+      <p>&#8801;</p>
+    </div>
   </menu>
 </template>
 
@@ -52,6 +60,13 @@ menu {
   &:hover {
     box-shadow: -1px -1px 1px 2px #7f7f7f;
   }
+  p {
+    font-size: 7.5vw;
+    line-height: 6.5vw;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
 }
 
 button {
@@ -69,10 +84,10 @@ p {
 .list {
   padding: 0;
   list-style: none;
-  margin: 0;
+  margin: 0 0 0 50vw;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  width: 80vw;
+  grid-template-columns: 1fr 1fr;
+  width: 40vw;
   button,
   a {
     align-self: center;
@@ -95,6 +110,10 @@ p {
     pointer-events: none;
     cursor: default;
   }
+}
+
+.list.long {
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 menu.light {
