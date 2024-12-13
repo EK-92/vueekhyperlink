@@ -4,8 +4,6 @@ import { storeToRefs } from 'pinia'
 import { genericStore } from '@/stores/generic'
 import { computed } from 'vue'
 
-import menu from "@/assets/menu.png";
-
 const store = genericStore()
 const { darkTheme, isMenuOpen, showRectanglesButton, showTrianglesButton } = storeToRefs(store)
 const { toggleLayout, toggleTheme, toggleMenu } = store
