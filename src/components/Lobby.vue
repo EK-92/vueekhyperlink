@@ -38,8 +38,7 @@ const themeClass = computed(() => ({
 }
 
 .name {
-  /* margin: 0 auto; */
-  margin: calc(50vh - 25vh - 2rem - 6.8vw) auto 0;
+  margin: calc(50vh - 25vh - 2.5rem - 6.8vw) auto 0;
   display: grid;
   grid-template-columns: 12vw 1fr;
   img {
@@ -100,7 +99,6 @@ const themeClass = computed(() => ({
   .name {
     grid-template-columns: 1fr;
     margin: 0;
-    /* margin: calc(50vh - 3rem - 45px - 19vw) 0 calc(50vh - 45px - 1rem - 7vw); */
     text-align: center;
     img {
       grid-row-end: 2;
