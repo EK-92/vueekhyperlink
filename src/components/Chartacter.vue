@@ -12,6 +12,28 @@
 
   ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
+  const options: any = {
+    responsive: true,
+    indexAxis: 'y',
+    scales: {
+      y: {
+        ticks: { color: '#7cb342', beginAtZero: true }
+      },
+      x: {
+        ticks: { color: '#7cb342', beginAtZero: true }
+      }
+    },
+    plugins: {
+      legend: {
+        display: false
+      },
+      tooltip: {
+        enabled: false
+      }
+    }
+
+  }
+
   export default {
     name: 'Chartacter',
     components: {
@@ -26,26 +48,7 @@
             backgroundColor: '#7cb342'
           }]
         },
-        options: {
-          responsive: true,
-          indexAxis: 'y',
-          scales: {
-            y: {
-              ticks: { color: '#7cb342', beginAtZero: true }
-            },
-            x: {
-              ticks: { color: '#7cb342', beginAtZero: true }
-            }
-          },
-          plugins: {
-            legend: {
-              display: false
-            },
-            tooltip: {
-              enabled: false
-            }
-          }
-        }
+        options
       }
     }
   }
