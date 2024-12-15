@@ -140,7 +140,9 @@ menu.light {
 @media (max-width: 639px) {
   .list {
     grid-template-columns: 1fr 1fr;
-    grid-row-gap: 10vw;
+    grid-column-gap: 10vw;
+    margin: 0 auto 1rem;
+    width: 80vw;
   }
 
   .toggle {
@@ -149,6 +151,10 @@ menu.light {
     display: block;
     margin: 0 auto;
     grid-column-start: 1;
+    p {
+    font-size: 10vw;
+    line-height: 8vw;
+    }
   }
 
   menu {
