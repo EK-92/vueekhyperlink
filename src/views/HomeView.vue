@@ -13,6 +13,6 @@ import Prompt from '@/components/Prompt.vue'
 <style scoped>
 .home {
   position: relative;
-  min-height: calc(100vh - 5vw - 2rem);
+  min-height: 100vh;
 }
 </style>

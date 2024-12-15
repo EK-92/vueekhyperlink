@@ -24,10 +24,9 @@ const themeClass = computed(() => ({
   line-height: 5vw;
   word-break: keep-all;
   text-align: left;
-  padding: 1rem;
+  padding: 2.5vw;
   margin: 0 auto;
   background: #171717;
-  max-width: 1400px;
   span {
     color: #eee;
   }
@@ -42,8 +41,9 @@ const themeClass = computed(() => ({
 
 @media (min-width: 640px) {
   .prompt {
-    font-size: 1.5vw;
-    line-height: 2vw;
+    font-size: 2vw;
+    line-height: 2.5vw;
+    padding: 1vw;
   }
 }
 </style>

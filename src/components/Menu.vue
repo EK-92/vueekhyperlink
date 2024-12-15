@@ -21,9 +21,15 @@ const listClass = computed(() => ({
     <div :class="listClass" v-if="isMenuOpen">
       <RouterLink to="/" @click="toggleMenu">Home</RouterLink>
       <RouterLink to="/history" @click="toggleMenu">History</RouterLink>
-      <button @click="toggleTheme"><p>&#9703;</p></button>
-      <button v-if="showTrianglesButton" @click="toggleLayout"><p>&#10702;</p></button>
-      <button v-if="showRectanglesButton" @click="toggleLayout"><p class="rectangles">&#9580;</p></button>
+      <button @click="toggleTheme">
+        <p>&#9703;</p>
+      </button>
+      <button v-if="showTrianglesButton" @click="toggleLayout">
+        <p>&#10702;</p>
+      </button>
+      <button v-if="showRectanglesButton" @click="toggleLayout">
+        <p class="rectangles">&#9580;</p>
+      </button>
     </div>
     <div @click="toggleMenu" class="toggle">
       <p>&#8801;</p>
@@ -53,17 +59,22 @@ menu {
   cursor: pointer;
   margin: 0 auto;
   box-shadow: -1px -1px 1px 2px #424242;
+
   &:active,
   &:focus,
   &:hover {
     box-shadow: -1px -1px 1px 2px #7f7f7f;
   }
+
   p {
     font-size: 7.5vw;
     line-height: 6.5vw;
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
+    /* Safari */
+    -webkit-user-select: none;
+    /* IE 10 and IE 11 */
+    -ms-user-select: none;
+    /* Standard syntax */
+    user-select: none;
   }
 }
 
@@ -86,6 +97,7 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 40vw;
+
   button,
   a {
     align-self: center;
@@ -98,10 +110,12 @@ p {
       2px 2px 2px #111,
       -1px -1px 1px #111;
     cursor: pointer;
+
     &:hover {
       background: #111;
     }
   }
+
   .router-link-active {
     display: none;
     color: #7f7f7f;
@@ -118,12 +132,18 @@ menu.light {
   .toggle {
     background: #fff;
     box-shadow: 1px 1px 1px 2px #7f7f7f;
+
     &:active,
     &:focus,
     &:hover {
       box-shadow: 1px 1px 1px 2px #212121;
     }
+
+    p {
+      color: #558b2f;
+    }
   }
+
   .list a,
   .list button {
     color: #212121;
@@ -131,6 +151,7 @@ menu.light {
     box-shadow:
       2px 2px 2px #bdbdbd,
       -1px -1px 1px #bdbdbd;
+
     &:hover {
       background: #fff;
     }
@@ -151,9 +172,10 @@ menu.light {
     display: block;
     margin: 0 auto;
     grid-column-start: 1;
+
     p {
-    font-size: 10vw;
-    line-height: 8vw;
+      font-size: 10vw;
+      line-height: 8vw;
     }
   }
 
@@ -168,6 +190,7 @@ menu.light {
   menu {
     grid-template-columns: 1fr 15vw;
   }
+
   .list {
     font-size: 2vw;
   }

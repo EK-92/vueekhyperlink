@@ -124,7 +124,7 @@ const cards = ref([
 
 @media (min-width: 1400px) {
   .cards-holder {
-    max-width: 1400px;
+    max-width: 80vw;
   }
   .cards-holder.triangles {
     max-width: unset;
