@@ -158,7 +158,7 @@ menu.light {
   }
 }
 
-@media (max-width: 639px) {
+@media (max-width: 719px) {
   .list {
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 10vw;
@@ -186,7 +186,7 @@ menu.light {
   }
 }
 
-@media (min-width: 640px) and (max-width: 1199px) {
+@media (min-width: 720px) and (max-width: 1199px) {
   menu {
     grid-template-columns: 1fr 15vw;
   }

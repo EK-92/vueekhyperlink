@@ -39,7 +39,7 @@ const themeClass = computed(() => ({
   }
 }
 
-@media (min-width: 640px) {
+@media (min-width: 720px) {
   .prompt {
     font-size: 2vw;
     line-height: 2.5vw;

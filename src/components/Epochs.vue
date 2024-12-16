@@ -91,7 +91,7 @@ const cards = ref([
   }
 }
 
-@media (max-width: 639px) {
+@media (max-width: 719px) {
   .cards-holder {
     grid-template-columns: 1fr;
     min-height: calc(100vh - 5vw - 2rem);
@@ -101,13 +101,13 @@ const cards = ref([
   }
 }
 
-@media (min-width: 640px) {
+@media (min-width: 720px) {
   .cards-holder {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (min-width: 640px) and (max-width: 1199px) {
+@media (min-width: 720px) and (max-width: 1199px) {
   .cards-holder {
     margin-top: calc(50vh - 8rem - 8.8vw);
   }

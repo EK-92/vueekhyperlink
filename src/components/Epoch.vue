@@ -194,7 +194,7 @@ const cardClass = computed(() => ({
   }
 }
 
-@media (max-width: 639px) {
+@media (max-width: 719px) {
   .img-holder img {
     max-width: 7vw;
     max-height: 7vw;
@@ -210,7 +210,7 @@ const cardClass = computed(() => ({
   }
 }
 
-@media (min-width: 640px) {
+@media (min-width: 720px) {
   .img-holder img {
     max-width: 3vw;
     max-height: 3vw;
@@ -228,7 +228,7 @@ const cardClass = computed(() => ({
   }
 }
 
-@media (min-width: 640px) and (max-width: 1199px) {
+@media (min-width: 720px) and (max-width: 1199px) {
   .card {
     &:nth-of-type(2n) {
       margin-right: 2.5rem;
