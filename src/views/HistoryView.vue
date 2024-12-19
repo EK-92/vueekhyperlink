@@ -9,17 +9,3 @@ import Prompt from '@/components/Prompt.vue'
     <Epochs />
   </main>
 </template>
-
-<style scoped>
-@media (min-width: 720px) and (max-width: 1199px) {
-  .history {
-    padding-bottom: calc(50vh - 6rem - 6.6vw);
-  }
-}
-
-@media (min-width: 1200px) {
-  .history {
-    padding-bottom: calc(50vh - 6rem - 4.2vw);
-  }
-}
-</style>

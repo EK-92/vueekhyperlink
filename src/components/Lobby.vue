@@ -45,9 +45,9 @@ const themeClass = computed(() => ({
   img {
     grid-row-start: 1;
     grid-row-end: 5;
-    width: calc(11.5vw - 2rem);
+    width: 8vw;
     max-width: 11.5vw;
-    padding: 1rem;
+    padding: 1.75vw;
     margin: auto;
     filter: drop-shadow(-1px 1px 2px #bdbdbd) drop-shadow(2px -2px 3px #bdbdbd);
   }
