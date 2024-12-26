@@ -9,10 +9,12 @@ const store = genericStore()
 const { darkTheme, triangularLayout } = storeToRefs(store)
 
 const hasLink = computed(() => !!content.link.length)
+const hasSubHeader = computed(() => !!content.subheader.length)
 const cardClass = computed(() => ({
   light: !darkTheme.value,
   triangular: triangularLayout.value,
-  routeless: !hasLink.value
+  routeless: !hasLink.value,
+  subheaderless: !hasSubHeader.value
 }))
 </script>
 
@@ -24,7 +26,7 @@ const cardClass = computed(() => ({
     <h4>{{ content.header }}</h4>
     <p class="subheader">
       <span class="date">{{ content.date }}</span>
-      <span>{{ content.subheader }}</span>
+      <span class="subsubheader">{{ content.subheader }}</span>
     </p>
   </a>
 </template>
@@ -34,9 +36,9 @@ const cardClass = computed(() => ({
   display: grid;
   grid-template-columns: 20% 80%;
   box-shadow:
-    2px 2px 2px #111,
-    -1px -1px 1px #111;
-  margin: 0.5rem;
+    0.2vw 0.2vw 0.1vw #111,
+    -0.1vw -0.1vw 0.1vw #111;
+  margin: 1vw;
   background: #424242;
   color: #7cb342;
   text-decoration: none;
@@ -50,15 +52,15 @@ const cardClass = computed(() => ({
     line-height: 5vw;
   }
   h4 {
-    margin: 1rem 0 0.5rem;
+    margin: 2vw 0 1vw;
   }
   p {
-    margin: 0.5rem 0 1rem;
+    margin: 1vw 0 2vw;
     .date {
       font-family: 'Ubuntu+Mono', monospace;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      padding: 0 0.25rem;
-      margin-right: 0.5rem;
+      border: 0.2vw solid rgba(255, 255, 255, 0.4);
+      padding: 0 0.25vw;
+      margin-right: 0.5vw;
       &:empty {
         border: none;
         padding: 0;
@@ -84,7 +86,7 @@ const cardClass = computed(() => ({
   &:nth-of-type(4n-2),
   &:nth-of-type(4n-1) {
     clip-path: polygon(0% 0%, 100% 0%, 50% 86.6%);
-    grid-template-rows: 10vw 20vw 21.96vw;
+    grid-template-rows: 12vw 18vw 21.96vw;
     padding: 0;
     .img-holder {
       grid-row: 3 / 4;
@@ -94,6 +96,7 @@ const cardClass = computed(() => ({
     }
     h4 {
       grid-row: 1 / 2;
+      /* margin: 4vw 0 2vw; */
     }
     .subheader .date {
       grid-row: 2 / 3;
@@ -103,7 +106,7 @@ const cardClass = computed(() => ({
   &:nth-of-type(4n),
   &:nth-of-type(4n + 1) {
     clip-path: polygon(0% 86.6%, 100% 86.6%, 50% 0);
-    grid-template-rows: 21.96vw 20vw 10vw;
+    grid-template-rows: 21.96vw 18vw 12vw;
     padding: 0;
     .img-holder {
       grid-row: 1 / 2;
@@ -113,7 +116,9 @@ const cardClass = computed(() => ({
     }
     h4 {
       grid-row: 3 / 4;
+      /* margin: 2vw 0 4vw; */
     }
+
     .subheader .date {
       grid-row: 1 / 2;
     }
@@ -129,6 +134,10 @@ const cardClass = computed(() => ({
     h4 {
       align-self: center;
     }
+  }
+
+  p {
+    margin: 0;
   }
 
   h4,
@@ -149,6 +158,11 @@ const cardClass = computed(() => ({
   }
 }
 
+.triangular.subheaderless .subheader {
+  display: block;
+  margin: calc(7vw - 0.5vw) 0;
+}
+
 .img-holder {
   grid-row: 1 / 3;
   position: relative;
@@ -157,21 +171,21 @@ const cardClass = computed(() => ({
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    filter: drop-shadow(0.1vw 0.1vw 0.2vw #7f7f7f) drop-shadow(-0.1vw 0.1vw 0.2vw #7f7f7f);
+    filter: drop-shadow(0.2vw 0.2vw 0.4vw #7f7f7f) drop-shadow(-0.2vw 0.2vw 0.4vw #7f7f7f);
   }
 }
 
 .light {
   box-shadow:
-    2px 2px 2px #bdbdbd,
-    -1px -1px 1px #bdbdbd;
+    0.2vw 0.2vw 0.1vw #bdbdbd,
+    -0.1vw -0.1vw 0.1vw #bdbdbd;
   background: #e8e8e8;
   &:hover {
     background: #fff;
   }
   p {
     .date {
-      border: 1px solid rgba(0, 0, 0, 0.4);
+      border: 0.2vw solid rgba(0, 0, 0, 0.4);
     }
   }
 }
@@ -194,7 +208,7 @@ const cardClass = computed(() => ({
   }
 }
 
-@media (max-width: 639px) {
+@media (max-width: 719px) {
   .img-holder img {
     max-width: 7vw;
     max-height: 7vw;
@@ -210,36 +224,19 @@ const cardClass = computed(() => ({
   }
 }
 
-@media (min-width: 640px) {
+@media (min-width: 720px) {
   .img-holder img {
-    max-width: 3vw;
-    max-height: 3vw;
-  }
-
-  .future {
-    p {
-      line-height: 0;
-      margin: 0;
-    }
-
-    h4 {
-      margin-top: 1.25rem;
-    }
+    max-width: 5vw;
+    max-height: 5vw;
   }
 }
 
-@media (min-width: 640px) and (max-width: 1199px) {
+@media (min-width: 720px) and (max-width: 1023px) {
   .card {
-    &:nth-of-type(2n) {
-      margin-right: 2.5rem;
-    }
-    &:nth-of-type(2n + 1) {
-      margin-left: 2.5rem;
-    }
     h4,
     p {
-      font-size: 1.8vw;
-      line-height: 2.2vw;
+      font-size: 2.5vw;
+      line-height: 3vw;
     }
   }
   .triangular h4,
@@ -275,18 +272,18 @@ const cardClass = computed(() => ({
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
   .card {
     &:nth-of-type(2n) {
-      margin-right: 2.5rem;
+      margin-right: 5vw;
     }
     &:nth-of-type(2n + 1) {
-      margin-left: 2.5rem;
+      margin-left: 5vw;
     }
     h4,
     p {
-      font-size: 1.2vw;
-      line-height: 1.4vw;
+      font-size: 1.5vw;
+      line-height: 1vw;
     }
   }
   .card.triangular {
