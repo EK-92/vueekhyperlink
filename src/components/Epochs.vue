@@ -35,6 +35,7 @@ const cards = ref([
   },
   {
     header: 'Eligible to work in Canada',
+    subheader: '',
     date: '2016-current',
     link: '',
     pic: CICPic
@@ -62,6 +63,7 @@ const cards = ref([
   },
   {
     header: 'Permanent Resident of Canada',
+    subheader: '',
     date: '2022-current',
     link: '',
     pic: CICPic
@@ -87,35 +89,33 @@ const cards = ref([
   display: grid;
   .triangles {
     margin-top: 4.03vw;
-    min-height: calc(100vh - 6.03vw - 2rem);
   }
 }
 
-@media (max-width: 639px) {
+@media (max-width: 1023px) {
   .cards-holder {
+    margin-top: 2.5vw;
     grid-template-columns: 1fr;
-    min-height: calc(100vh - 5vw - 2rem);
   }
   .cards-holder.triangles {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (min-width: 640px) {
+@media (min-width: 720px) {
+  .cards-holder {
+    /* margin-top: calc(50vh - 8rem - 8.8vw); */
+  }
+}
+
+@media (min-width: 720px) and (max-width: 1023px) {
+  .cards-holder {
+  }
+}
+
+@media (min-width: 1024px) {
   .cards-holder {
     grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (min-width: 640px) and (max-width: 1199px) {
-  .cards-holder {
-    margin-top: calc(50vh - 8rem - 8.8vw);
-  }
-}
-
-@media (min-width: 1200px) {
-  .cards-holder {
-    margin: calc(50vh - 8rem - 6.4vw) auto 0;
   }
   .cards-holder.triangles {
     grid-template-columns: 1fr 1fr 1fr;
@@ -124,10 +124,12 @@ const cards = ref([
 
 @media (min-width: 1400px) {
   .cards-holder {
-    max-width: 1400px;
+    max-width: 80vw;
+    margin: 2vw 10vw 0;
+    padding-bottom: 4vw;
   }
   .cards-holder.triangles {
-    max-width: unset;
+    /* max-width: unset; */
   }
 }
 </style>
