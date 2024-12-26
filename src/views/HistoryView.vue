@@ -9,3 +9,9 @@ import Prompt from '@/components/Prompt.vue'
     <Epochs />
   </main>
 </template>
+
+<style scoped>
+main {
+  min-height: 100vh;
+}
+</style>

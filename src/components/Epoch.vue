@@ -36,8 +36,8 @@ const cardClass = computed(() => ({
   display: grid;
   grid-template-columns: 20% 80%;
   box-shadow:
-    0.4vw 0.4vw 0.2vw #111,
-    -0.4vw -0.4vw 0.2vw #111;
+    0.2vw 0.2vw 0.1vw #111,
+    -0.1vw -0.1vw 0.1vw #111;
   margin: 1vw;
   background: #424242;
   color: #7cb342;
@@ -58,9 +58,9 @@ const cardClass = computed(() => ({
     margin: 1vw 0 2vw;
     .date {
       font-family: 'Ubuntu+Mono', monospace;
-      border: 0.5vw solid rgba(255, 255, 255, 0.4);
+      border: 0.2vw solid rgba(255, 255, 255, 0.4);
       padding: 0 0.25vw;
-      margin-right: 1vw;
+      margin-right: 0.5vw;
       &:empty {
         border: none;
         padding: 0;
@@ -157,6 +157,7 @@ const cardClass = computed(() => ({
     }
   }
 }
+
 .triangular.subheaderless .subheader {
   display: block;
   margin: calc(7vw - 0.5vw) 0;
@@ -176,15 +177,15 @@ const cardClass = computed(() => ({
 
 .light {
   box-shadow:
-    0.4vw 0.4vw 0.2vw #bdbdbd,
-    -0.4vw -0.4vw 0.2vw #bdbdbd;
+    0.2vw 0.2vw 0.1vw #bdbdbd,
+    -0.1vw -0.1vw 0.1vw #bdbdbd;
   background: #e8e8e8;
   &:hover {
     background: #fff;
   }
   p {
     .date {
-      border: 0.5vw solid rgba(0, 0, 0, 0.4);
+      border: 0.2vw solid rgba(0, 0, 0, 0.4);
     }
   }
 }
@@ -227,9 +228,6 @@ const cardClass = computed(() => ({
   .img-holder img {
     max-width: 5vw;
     max-height: 5vw;
-  }
-
-  .future {
   }
 }
 
@@ -286,12 +284,6 @@ const cardClass = computed(() => ({
     p {
       font-size: 1.5vw;
       line-height: 1vw;
-    }
-    h4 {
-      margin: 1vw 0 0.5vw;
-    }
-    p {
-      margin: 0.5vw 0 1vw;
     }
   }
   .card.triangular {

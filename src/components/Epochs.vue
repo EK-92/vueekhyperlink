@@ -87,7 +87,6 @@ const cards = ref([
 <style scoped>
 .cards-holder {
   display: grid;
-  min-height: calc(100vh - 10vw);
   .triangles {
     margin-top: 4.03vw;
   }

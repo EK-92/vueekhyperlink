@@ -57,12 +57,12 @@ menu {
   border-radius: 50%;
   cursor: pointer;
   margin: 0 auto;
-  box-shadow: -0.4vw -0.4vw 0.2vw 0.2vw #424242;
+  box-shadow: -0.1vw -0.1vw 0.1vw 0.1vw #424242;
 
   &:active,
   &:focus,
   &:hover {
-    box-shadow: -0.4vw -0.4vw 0.2vw 0.2vw #7f7f7f;
+    box-shadow: -0.1vw -0.1vw 0.1vw 0.1vw #7f7f7f;
   }
 
   p {
@@ -108,8 +108,8 @@ p {
     color: #7cb342;
     background: #313131;
     box-shadow:
-      0.4vw 0.4vw 0.2vw #111,
-      -0.4vw -0.4vw 0.2vw #111;
+      0.2vw 0.2vw 0.1vw 0.1vw #111,
+      -0.1vw -0.1vw 0.1vw 0.1vw #111;
     cursor: pointer;
 
     &:hover {
@@ -132,12 +132,12 @@ p {
 menu.light {
   .toggle {
     background: #fff;
-    box-shadow: 0.4vw 0.4vw 0.4vw 0.2vw #7f7f7f;
+    box-shadow: 0.2vw 0.2vw 0.1vw 0.1vw #7f7f7f;
 
     &:active,
     &:focus,
     &:hover {
-      box-shadow: 0.4vw 0.4vw 0.4vw 0.2vw #212121;
+      box-shadow: 0.2vw 0.2vw 0.1vw 0.1vw #212121;
     }
 
     p {
@@ -152,8 +152,8 @@ menu.light {
       color: #212121;
       background: #eee;
       box-shadow:
-        0.4vw 0.4vw 0.2vw #bdbdbd,
-        -0.4vw -0.4vw 0.2vw #bdbdbd;
+        0.2vw 0.2vw 0.1vw 0.1vw #bdbdbd,
+        -0.1vw -0.1vw 0.1vw 0.1vw #bdbdbd;
 
       &:hover {
         background: #fff;
