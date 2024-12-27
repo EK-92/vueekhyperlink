@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
-import { ref, computed } from 'vue'
-import { genericStore } from '@/stores/generic'
+import { ref } from 'vue'
 import Epoch from '@/components/Epoch.vue'
 
 import SheridanPic from '@/assets/sheridan.png'
@@ -10,13 +8,6 @@ import CICPic from '@/assets/cic.png'
 import CICShadedPic from '@/assets/cicShaded.png'
 import EmeritusPic from '@/assets/emeritus.png'
 import RewardopsPic from '@/assets/rewardops.png'
-
-const store = genericStore()
-const { triangularLayout } = storeToRefs(store)
-
-const trianglesClass = computed(() => ({
-  triangles: triangularLayout.value
-}))
 
 const cards = ref([
   {
@@ -79,7 +70,7 @@ const cards = ref([
 </script>
 
 <template>
-  <div class="cards-holder" :class="trianglesClass">
+  <div class="cards-holder triangles">
     <Epoch v-for="(card, i) in cards" :content="card" :key="i"></Epoch>
   </div>
 </template>
@@ -87,48 +78,27 @@ const cards = ref([
 <style scoped>
 .cards-holder {
   display: grid;
-  .triangles {
-    margin-top: 4.03vw;
-  }
+  margin-top: 4.03vw;
 }
 
 @media (max-width: 1023px) {
   .cards-holder {
     margin-top: 2.5vw;
-    grid-template-columns: 1fr;
-  }
-  .cards-holder.triangles {
     grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (min-width: 720px) {
-  .cards-holder {
-    /* margin-top: calc(50vh - 8rem - 8.8vw); */
   }
 }
 
 @media (min-width: 720px) and (max-width: 1023px) {
-  .cards-holder {
-  }
 }
 
 @media (min-width: 1024px) {
   .cards-holder {
-    grid-template-columns: 1fr 1fr;
-  }
-  .cards-holder.triangles {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 @media (min-width: 1400px) {
   .cards-holder {
-    max-width: 80vw;
-    margin: 2vw 10vw 0;
-    padding-bottom: 4vw;
-  }
-  .cards-holder.triangles {
     /* max-width: unset; */
   }
 }

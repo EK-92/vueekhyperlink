@@ -5,14 +5,13 @@ import { genericStore } from '@/stores/generic'
 import { computed } from 'vue'
 
 const store = genericStore()
-const { darkTheme, isMenuOpen, showRectanglesButton, showTrianglesButton } = storeToRefs(store)
+const { darkTheme, isMenuOpen } = storeToRefs(store)
 const { toggleLayout, toggleTheme, toggleMenu } = store
 
 const themeClass = computed(() => ({
   light: !darkTheme.value
 }))
 const listClass = computed(() => ({
-  long: showTrianglesButton.value || showRectanglesButton.value,
   list: isMenuOpen.value
 }))
 </script>
@@ -23,12 +22,6 @@ const listClass = computed(() => ({
       <RouterLink to="/history" @click="toggleMenu">History</RouterLink>
       <button @click="toggleTheme">
         <p>&#9703;</p>
-      </button>
-      <button v-if="showTrianglesButton" @click="toggleLayout">
-        <p>&#10702;</p>
-      </button>
-      <button v-if="showRectanglesButton" @click="toggleLayout">
-        <p class="rectangles">&#9580;</p>
       </button>
     </div>
     <div @click="toggleMenu" class="toggle">
@@ -123,10 +116,6 @@ p {
     pointer-events: none;
     cursor: default;
   }
-}
-
-.list.long {
-  grid-template-columns: 1fr 1fr 1fr;
 }
 
 menu.light {
