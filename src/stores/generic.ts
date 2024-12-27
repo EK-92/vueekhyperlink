@@ -8,7 +8,6 @@ export const genericStore = defineStore('theme', () => {
   const location = useRoute()
   const localStorageDarkTheme = useLocalStorage('darkTheme', 'true')
   const darkTheme = ref(true)
-  const triangularLayout = ref(false)
 
   if (localStorageDarkTheme.value) {
     darkTheme.value = JSON.parse(localStorageDarkTheme.value)
@@ -21,11 +20,6 @@ export const genericStore = defineStore('theme', () => {
     localStorageDarkTheme.value = JSON.stringify(darkTheme.value)
   }
 
-  function toggleLayout() {
-    isMenuOpen.value = !isMenuOpen.value
-    triangularLayout.value = !triangularLayout.value
-  }
-
   function toggleMenu() {
     isMenuOpen.value = !isMenuOpen.value
   }
@@ -34,8 +28,6 @@ export const genericStore = defineStore('theme', () => {
     darkTheme,
     isMenuOpen,
     onHistoryPage,
-    triangularLayout,
-    toggleLayout,
     toggleTheme,
     toggleMenu
   }

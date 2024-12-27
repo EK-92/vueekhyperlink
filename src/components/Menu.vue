@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { genericStore } from '@/stores/generic'
 import { computed } from 'vue'
 
 const store = genericStore()
 const { darkTheme, isMenuOpen } = storeToRefs(store)
-const { toggleLayout, toggleTheme, toggleMenu } = store
+const { toggleTheme, toggleMenu } = store
 
 const themeClass = computed(() => ({
   light: !darkTheme.value
@@ -18,8 +17,6 @@ const listClass = computed(() => ({
 <template>
   <menu :class="themeClass">
     <div :class="listClass" v-if="isMenuOpen">
-      <RouterLink to="/" @click="toggleMenu">Home</RouterLink>
-      <RouterLink to="/history" @click="toggleMenu">History</RouterLink>
       <button @click="toggleTheme">
         <p>&#9703;</p>
       </button>
@@ -87,11 +84,10 @@ p {
   list-style: none;
   margin: 0 0 0 50vw;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   width: 40vw;
 
-  button,
-  a {
+  button {
     font-size: 4.5vw;
     line-height: 4vw;
     align-self: center;
@@ -108,13 +104,6 @@ p {
     &:hover {
       background: #111;
     }
-  }
-
-  .router-link-active {
-    display: none;
-    color: #7f7f7f;
-    pointer-events: none;
-    cursor: default;
   }
 }
 
@@ -135,8 +124,6 @@ menu.light {
   }
 
   .list {
-
-    a,
     button {
       color: #212121;
       background: #eee;
@@ -185,8 +172,6 @@ menu.light {
   }
 
   .list {
-
-    a,
     button {
       font-size: 2vw;
       line-height: 1.5vw;
@@ -196,8 +181,6 @@ menu.light {
 
 @media (min-width: 1200px) {
   .list {
-
-    a,
     button {
       font-size: 1.5vw;
       line-height: 1.2vw;
