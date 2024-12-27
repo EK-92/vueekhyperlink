@@ -16,6 +16,5 @@ import Prompt from '@/components/Prompt.vue'
 <style scoped>
 main {
   position: relative;
-  min-height: 100vh;
 }
 </style>

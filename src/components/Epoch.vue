@@ -6,13 +6,12 @@ import { genericStore } from '@/stores/generic'
 const { content } = defineProps(['content'])
 
 const store = genericStore()
-const { darkTheme, triangularLayout } = storeToRefs(store)
+const { darkTheme } = storeToRefs(store)
 
 const hasLink = computed(() => !!content.link.length)
 const hasSubHeader = computed(() => !!content.subheader.length)
 const cardClass = computed(() => ({
   light: !darkTheme.value,
-  triangular: triangularLayout.value,
   routeless: !hasLink.value,
   subheaderless: !hasSubHeader.value
 }))
@@ -51,30 +50,7 @@ const cardClass = computed(() => ({
   &:hover {
     background: #000;
   }
-
-  &:nth-of-type(4n-2),
-  &:nth-of-type(4n-1) {
-    clip-path: polygon(0% 0%, 100% 0%, 50% 86.6%);
-    grid-template-rows: 12vw 18vw 21.96vw;
-    padding: 0;
-
-    .img-holder {
-      grid-row: 3 / 4;
-
-      img {
-        top: 25%;
-      }
-    }
-
-    h4 {
-      grid-row: 1 / 2;
-    }
-
-    .subheader .date {
-      grid-row: 2 / 3;
-    }
-  }
-
+  /* 0, 1, 4, 5 */
   &:nth-of-type(4n),
   &:nth-of-type(4n + 1) {
     clip-path: polygon(0% 86.6%, 100% 86.6%, 50% 0);
@@ -91,10 +67,35 @@ const cardClass = computed(() => ({
 
     h4 {
       grid-row: 3 / 4;
+      margin: 1vw 0 2vw;
     }
 
     .subheader .date {
       grid-row: 1 / 2;
+    }
+  }
+  /* 2, 3, 6, 7 */
+  &:nth-of-type(4n-2),
+  &:nth-of-type(4n-1) {
+    clip-path: polygon(0% 0%, 100% 0%, 50% 86.6%);
+    grid-template-rows: 12vw 18vw 21.96vw;
+    padding: 0;
+
+    .img-holder {
+      grid-row: 3 / 4;
+
+      img {
+        top: 25%;
+      }
+    }
+
+    h4 {
+      grid-row: 1 / 2;
+      margin: 2vw 0 1vw;
+    }
+
+    .subheader .date {
+      grid-row: 2 / 3;
     }
   }
 
@@ -106,24 +107,16 @@ const cardClass = computed(() => ({
   &:nth-of-type(2n) {
     margin-right: 0;
     margin-left: -10vw;
-
-    h4 {
-      align-self: center;
-    }
   }
 
   h4,
   p {
     font-size: 3vw;
-    line-height: 4vw;
+    line-height: 3vw;
 
     span {
       margin: auto;
     }
-  }
-
-  h4 {
-    margin: 2vw 0 1vw;
   }
 
   .subheader {
@@ -271,8 +264,8 @@ const cardClass = computed(() => ({
 
     h4,
     p {
-      font-size: 1.8vw;
-      line-height: 2.2vw;
+      font-size: 2vw;
+      line-height: 2vw;
     }
   }
 }
@@ -283,7 +276,7 @@ const cardClass = computed(() => ({
     /* 0 60vw 10vw small */
     width: 30vw;
     height: 30vw;
-
+    /* 2, 4, 6, 8 */
     &:nth-of-type(2n) {
       grid-template-rows: 5vw 10vw 10.98vw;
       clip-path: polygon(0% 0%, 100% 0%, 50% 86.6%);
@@ -297,13 +290,17 @@ const cardClass = computed(() => ({
 
       h4 {
         grid-row: 1 / 2;
+        margin: 2vw 0 1vw;
       }
 
       .subheader {
         grid-row: 2 / 3;
+        .date {
+          grid-row: 2 / 3;
+        }
       }
     }
-
+    /* 1, 3, 5, 7 */
     &:nth-of-type(2n + 1) {
       grid-template-rows: 10.98vw 10vw 5vw;
       clip-path: polygon(0% 86.6%, 100% 86.6%, 50% 0);
@@ -314,55 +311,59 @@ const cardClass = computed(() => ({
 
       h4 {
         grid-row: 3 / 4;
+        margin: 1vw 0 2vw;
       }
 
       .subheader {
         grid-row: 2 / 3;
+        .date {
+          grid-row: 1 / 2;
+        }
       }
 
       .img-holder img {
         top: 75% !important;
       }
     }
-
+    /* 2, 5 ,8 */
     &:nth-of-type(3n + 2) {
       margin-left: -5vw;
       margin-right: -5vw;
     }
-
+    /* 1, 7 */
     &:nth-of-type(6n-5) {
       margin-top: 4.03vw;
     }
-
+    /* 2, 8 */
     &:nth-of-type(6n-4) {
       margin-top: 0.98vw;
     }
-
+    /* 3 */
     &:nth-of-type(6n-3) {
       margin-top: 4.03vw;
     }
-
+    /* 4 */
     &:nth-of-type(6n-2) {
       margin-top: 0.98vw;
     }
-
+    /* 5 */
     &:nth-of-type(6n-1) {
       margin-top: 4.03vw;
     }
-
+    /* 6 */
     &:nth-of-type(6n) {
       margin-top: 0.98vw;
     }
-
+    /* 8 */
     &:nth-of-type(6n + 8) {
       margin-top: 0.98vw;
     }
-
+    /* 1, 7 */
     &:nth-of-type(3n + 1) {
       margin-left: 15vw;
       margin-right: -5vw;
     }
-
+    /* 3, 6 */
     &:nth-of-type(3n) {
       margin-right: 15vw;
       margin-left: -5vw;
@@ -370,7 +371,7 @@ const cardClass = computed(() => ({
 
     h4,
     p {
-      font-size: 1.2vw;
+      font-size: 1.4vw;
       line-height: 1.4vw;
     }
   }
