@@ -50,6 +50,7 @@ const cardClass = computed(() => ({
   &:hover {
     background: #000;
   }
+
   /* 0, 1, 4, 5 */
   &:nth-of-type(4n),
   &:nth-of-type(4n + 1) {
@@ -74,6 +75,7 @@ const cardClass = computed(() => ({
       grid-row: 1 / 2;
     }
   }
+
   /* 2, 3, 6, 7 */
   &:nth-of-type(4n-2),
   &:nth-of-type(4n-1) {
@@ -105,8 +107,8 @@ const cardClass = computed(() => ({
   }
 
   &:nth-of-type(2n) {
-    margin-right: 0;
     margin-left: -10vw;
+    margin-right: 0;
   }
 
   h4,
@@ -276,6 +278,7 @@ const cardClass = computed(() => ({
     /* 0 60vw 10vw small */
     width: 30vw;
     height: 30vw;
+
     /* 2, 4, 6, 8 */
     &:nth-of-type(2n) {
       grid-template-rows: 5vw 10vw 10.98vw;
@@ -283,6 +286,7 @@ const cardClass = computed(() => ({
 
       .img-holder {
         grid-row: 3 / 4;
+
         img {
           top: 25% !important;
         }
@@ -295,11 +299,13 @@ const cardClass = computed(() => ({
 
       .subheader {
         grid-row: 2 / 3;
+
         .date {
           grid-row: 2 / 3;
         }
       }
     }
+
     /* 1, 3, 5, 7 */
     &:nth-of-type(2n + 1) {
       grid-template-rows: 10.98vw 10vw 5vw;
@@ -316,6 +322,7 @@ const cardClass = computed(() => ({
 
       .subheader {
         grid-row: 2 / 3;
+
         .date {
           grid-row: 1 / 2;
         }
@@ -325,44 +332,37 @@ const cardClass = computed(() => ({
         top: 75% !important;
       }
     }
+
     /* 2, 5 ,8 */
     &:nth-of-type(3n + 2) {
       margin-left: -5vw;
       margin-right: -5vw;
     }
+
     /* 1, 7 */
-    &:nth-of-type(6n-5) {
-      margin-top: 4.03vw;
-    }
-    /* 2, 8 */
-    &:nth-of-type(6n-4) {
-      margin-top: 0.98vw;
-    }
     /* 3 */
-    &:nth-of-type(6n-3) {
-      margin-top: 4.03vw;
-    }
-    /* 4 */
-    &:nth-of-type(6n-2) {
-      margin-top: 0.98vw;
-    }
     /* 5 */
+    &:nth-of-type(6n-5),
+    &:nth-of-type(6n-3),
     &:nth-of-type(6n-1) {
       margin-top: 4.03vw;
     }
+
+    /* 2, 8 */
+    /* 4 */
     /* 6 */
+    &:nth-of-type(6n-4),
+    &:nth-of-type(6n-2),
     &:nth-of-type(6n) {
       margin-top: 0.98vw;
     }
-    /* 8 */
-    &:nth-of-type(6n + 8) {
-      margin-top: 0.98vw;
-    }
+
     /* 1, 7 */
     &:nth-of-type(3n + 1) {
       margin-left: 15vw;
       margin-right: -5vw;
     }
+
     /* 3, 6 */
     &:nth-of-type(3n) {
       margin-right: 15vw;

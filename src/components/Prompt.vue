@@ -27,6 +27,7 @@ const themeClass = computed(() => ({
   padding: 2.5vw;
   margin: 0;
   background: #171717;
+
   span {
     color: #eee;
   }
@@ -34,6 +35,7 @@ const themeClass = computed(() => ({
 
 .light {
   background: #e0e0e0;
+
   span {
     color: #212121;
   }

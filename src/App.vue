@@ -10,8 +10,7 @@ const store = genericStore()
 const { darkTheme } = storeToRefs(store)
 
 const themeClass = computed(() => ({
-  light: !darkTheme.value,
-  base: true
+  light: !darkTheme.value
 }))
 </script>
 
@@ -27,6 +26,7 @@ div {
   color: #7cb342;
   background: #212121;
 }
+
 div.light {
   color: #558b2f;
   background: #f2f2f2;

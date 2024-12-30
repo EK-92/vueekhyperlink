@@ -89,18 +89,9 @@ const cards = ref([
   }
 }
 
-@media (min-width: 720px) and (max-width: 1023px) {
-}
-
 @media (min-width: 1024px) {
   .cards-holder {
     grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-@media (min-width: 1400px) {
-  .cards-holder {
-    /* max-width: unset; */
   }
 }
 </style>

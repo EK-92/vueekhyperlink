@@ -94,10 +94,11 @@ const themeClass = computed(() => ({
   .profile {
     grid-template-columns: 1fr;
   }
-  
+
   .silhouette {
     display: none;
   }
+
   .name {
     grid-template-columns: 1fr;
     margin: 0;
