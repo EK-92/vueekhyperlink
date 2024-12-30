@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
-import { ref, computed } from 'vue'
-import { genericStore } from '@/stores/generic'
+import { ref } from 'vue'
 import Epoch from '@/components/Epoch.vue'
 
 import SheridanPic from '@/assets/sheridan.png'
@@ -10,53 +8,40 @@ import CICPic from '@/assets/cic.png'
 import CICShadedPic from '@/assets/cicShaded.png'
 import EmeritusPic from '@/assets/emeritus.png'
 import RewardopsPic from '@/assets/rewardops.png'
-
-const store = genericStore()
-const { triangularLayout } = storeToRefs(store)
-
-const trianglesClass = computed(() => ({
-  triangles: triangularLayout.value
-}))
+import OpenPic from '@/assets/open.png'
 
 const cards = ref([
   {
-    header: 'Graduated from Sheridan College',
+    header: 'Sheridan College',
     subheader: 'Ontario College Diploma',
     link: 'https://www.sheridancollege.ca/programs/computer-systems-technician-software-engineering',
-    date: '2016',
+    date: '2014-2016',
     pic: SheridanPic
   },
   {
-    header: 'Internship @ The Silverlogic',
+    header: 'The Silverlogic',
     subheader: 'Front-end development',
     link: 'https://tsl.io/',
     date: '2016-2017',
     pic: TSLPic
   },
   {
-    header: 'Eligible to work in Canada',
-    subheader: '',
-    date: '2016-current',
-    link: '',
-    pic: CICPic
-  },
-  {
-    header: 'Employment @ Emeritus Financial',
+    header: 'Emeritus Financial Strategies',
     subheader: 'Front-end development',
     link: 'http://emeritusfinancial.com/',
     date: '2017-2018',
     pic: EmeritusPic
   },
   {
-    header: 'Employment @ RewardOps',
+    header: 'RewardOps',
     subheader: 'Front-end development',
     link: 'https://rewardops.com/',
     date: '2018-2021',
     pic: RewardopsPic
   },
   {
-    header: 'Employment @ RewardOps',
-    subheader: 'SRE',
+    header: 'RewardOps',
+    subheader: 'Site Reliability Engineer',
     link: 'https://rewardops.com/',
     date: '2021-2023',
     pic: RewardopsPic
@@ -69,6 +54,13 @@ const cards = ref([
     pic: CICPic
   },
   {
+    header: 'Your Company',
+    subheader: 'My Future Job',
+    link: '',
+    date: 'Soon',
+    pic: OpenPic
+  },
+  {
     header: '...',
     subheader: '...',
     link: '',
@@ -79,7 +71,7 @@ const cards = ref([
 </script>
 
 <template>
-  <div class="cards-holder" :class="trianglesClass">
+  <div class="cards-holder">
     <Epoch v-for="(card, i) in cards" :content="card" :key="i"></Epoch>
   </div>
 </template>
@@ -87,49 +79,19 @@ const cards = ref([
 <style scoped>
 .cards-holder {
   display: grid;
-  .triangles {
-    margin-top: 4.03vw;
-  }
+  margin-top: 4.03vw;
 }
 
 @media (max-width: 1023px) {
   .cards-holder {
-    margin-top: 2.5vw;
-    grid-template-columns: 1fr;
-  }
-  .cards-holder.triangles {
+    margin-top: 5vw;
     grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (min-width: 720px) {
-  .cards-holder {
-    /* margin-top: calc(50vh - 8rem - 8.8vw); */
-  }
-}
-
-@media (min-width: 720px) and (max-width: 1023px) {
-  .cards-holder {
   }
 }
 
 @media (min-width: 1024px) {
   .cards-holder {
-    grid-template-columns: 1fr 1fr;
-  }
-  .cards-holder.triangles {
     grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-@media (min-width: 1400px) {
-  .cards-holder {
-    max-width: 80vw;
-    margin: 2vw 10vw 0;
-    padding-bottom: 4vw;
-  }
-  .cards-holder.triangles {
-    /* max-width: unset; */
   }
 }
 </style>
