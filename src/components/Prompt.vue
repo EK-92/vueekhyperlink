@@ -25,7 +25,7 @@ const themeClass = computed(() => ({
   word-break: keep-all;
   text-align: left;
   padding: 2.5vw;
-  margin: 0 auto;
+  margin: 0;
   background: #171717;
   span {
     color: #eee;

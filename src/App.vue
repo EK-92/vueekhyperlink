@@ -31,8 +31,4 @@ div.light {
   color: #558b2f;
   background: #f2f2f2;
 }
-.base {
-  min-height: calc(100vh - 4.5vw);
-}
-
 </style>

@@ -71,7 +71,7 @@ const cards = ref([
 </script>
 
 <template>
-  <div class="cards-holder triangles">
+  <div class="cards-holder">
     <Epoch v-for="(card, i) in cards" :content="card" :key="i"></Epoch>
   </div>
 </template>
@@ -84,7 +84,7 @@ const cards = ref([
 
 @media (max-width: 1023px) {
   .cards-holder {
-    margin-top: 2.5vw;
+    margin-top: 5vw;
     grid-template-columns: 1fr 1fr;
   }
 }
