@@ -35,10 +35,11 @@ const themeClass = computed(() => ({
 .profile {
   display: grid;
   grid-template-columns: 55% 45%;
+  max-height: calc(100vh - 4.5vw);
 }
 
 .name {
-  margin: calc(50vh - 20vw) auto 0;
+  margin: calc(50vh - 19vw) auto;
   display: grid;
   grid-template-columns: 12vw 1fr;
 
@@ -72,9 +73,9 @@ const themeClass = computed(() => ({
 }
 
 .silhouette {
-  background: no-repeat center/90% url('@/assets/silhouette.png');
+  background: no-repeat center/80% url('@/assets/silhouette.png');
   filter: drop-shadow(2px 1px 2px #bdbdbd) drop-shadow(0px 0px 1px #bdbdbd);
-  height: calc(100vh - 4.5vw);
+  height: calc(100vh - 5vw);
   grid-column-start: 2;
   grid-row: 1 / 3;
 }
@@ -93,13 +94,14 @@ const themeClass = computed(() => ({
   .profile {
     grid-template-columns: 1fr;
   }
-  
+
   .silhouette {
     display: none;
   }
+
   .name {
     grid-template-columns: 1fr;
-    margin: calc(50vh - 59.5vw) 0;
+    margin: 0;
     text-align: center;
 
     h1 {
@@ -117,13 +119,13 @@ const themeClass = computed(() => ({
     img {
       width: 25vw;
       padding: 0;
-      margin: 10vw auto 10vw;
+      margin: 10vw auto 7.5vw;
     }
 
     canvas {
       height: 40vw !important;
       width: 80vw !important;
-      margin: 10vw auto 0;
+      margin: 10vw auto;
     }
   }
 }

@@ -6,13 +6,12 @@ import { genericStore } from '@/stores/generic'
 const { content } = defineProps(['content'])
 
 const store = genericStore()
-const { darkTheme, triangularLayout } = storeToRefs(store)
+const { darkTheme } = storeToRefs(store)
 
 const hasLink = computed(() => !!content.link.length)
 const hasSubHeader = computed(() => !!content.subheader.length)
 const cardClass = computed(() => ({
   light: !darkTheme.value,
-  triangular: triangularLayout.value,
   routeless: !hasLink.value,
   subheaderless: !hasSubHeader.value
 }))
@@ -33,34 +32,113 @@ const cardClass = computed(() => ({
 
 <style scoped>
 .card {
+  /* 12vw 48vw 4vw medium */
+  /* 0 72vw 8vw small */
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 1fr;
+  width: 60vw;
+  height: 60vw;
   box-shadow:
     0.2vw 0.2vw 0.1vw #111,
     -0.1vw -0.1vw 0.1vw #111;
-  margin: 1vw;
+  margin: 0;
   background: #424242;
   color: #7cb342;
+  text-align: center;
   text-decoration: none;
+
   &:hover {
     background: #000;
   }
 
+  /* 0, 1, 4, 5 */
+  &:nth-of-type(4n),
+  &:nth-of-type(4n + 1) {
+    clip-path: polygon(0% 86.6%, 100% 86.6%, 50% 0);
+    grid-template-rows: 21.96vw 18vw 12vw;
+    padding: 0;
+
+    .img-holder {
+      grid-row: 1 / 2;
+
+      img {
+        top: 75%;
+      }
+    }
+
+    h4 {
+      grid-row: 3 / 4;
+      margin: 1vw 0 2vw;
+    }
+
+    .subheader .date {
+      grid-row: 1 / 2;
+    }
+  }
+
+  /* 2, 3, 6, 7 */
+  &:nth-of-type(4n-2),
+  &:nth-of-type(4n-1) {
+    clip-path: polygon(0% 0%, 100% 0%, 50% 86.6%);
+    grid-template-rows: 12vw 18vw 21.96vw;
+    padding: 0;
+
+    .img-holder {
+      grid-row: 3 / 4;
+
+      img {
+        top: 25%;
+      }
+    }
+
+    h4 {
+      grid-row: 1 / 2;
+      margin: 2vw 0 1vw;
+    }
+
+    .subheader .date {
+      grid-row: 2 / 3;
+    }
+  }
+
+  &:nth-of-type(2n-1) {
+    margin-left: 0;
+    margin-right: -10vw;
+  }
+
+  &:nth-of-type(2n) {
+    margin-left: -10vw;
+    margin-right: 0;
+  }
+
   h4,
   p {
-    font-size: 4vw;
-    line-height: 5vw;
+    font-size: 3vw;
+    line-height: 3vw;
+
+    span {
+      margin: auto;
+    }
   }
-  h4 {
-    margin: 2vw 0 1vw;
+
+  .subheader {
+    display: grid;
+
+    .date {
+      max-width: 100%;
+      margin: auto;
+    }
   }
+
   p {
-    margin: 1vw 0 2vw;
+    margin: 0;
+
     .date {
       font-family: 'Ubuntu+Mono', monospace;
       border: 0.2vw solid rgba(255, 255, 255, 0.4);
       padding: 0 0.25vw;
       margin-right: 0.5vw;
+
       &:empty {
         border: none;
         padding: 0;
@@ -75,90 +153,7 @@ const cardClass = computed(() => ({
   cursor: default;
 }
 
-.triangular {
-  /* 12vw 48vw 4vw medium */
-  /* 0 72vw 8vw small */
-  width: 60vw;
-  height: 60vw;
-  grid-template-columns: 1fr;
-  text-align: center;
-  margin: 0;
-  &:nth-of-type(4n-2),
-  &:nth-of-type(4n-1) {
-    clip-path: polygon(0% 0%, 100% 0%, 50% 86.6%);
-    grid-template-rows: 12vw 18vw 21.96vw;
-    padding: 0;
-    .img-holder {
-      grid-row: 3 / 4;
-      img {
-        top: 25%;
-      }
-    }
-    h4 {
-      grid-row: 1 / 2;
-      /* margin: 4vw 0 2vw; */
-    }
-    .subheader .date {
-      grid-row: 2 / 3;
-    }
-  }
-
-  &:nth-of-type(4n),
-  &:nth-of-type(4n + 1) {
-    clip-path: polygon(0% 86.6%, 100% 86.6%, 50% 0);
-    grid-template-rows: 21.96vw 18vw 12vw;
-    padding: 0;
-    .img-holder {
-      grid-row: 1 / 2;
-      img {
-        top: 75%;
-      }
-    }
-    h4 {
-      grid-row: 3 / 4;
-      /* margin: 2vw 0 4vw; */
-    }
-
-    .subheader .date {
-      grid-row: 1 / 2;
-    }
-  }
-  &:nth-of-type(2n-1) {
-    margin-left: 0;
-    margin-right: -10vw;
-  }
-
-  &:nth-of-type(2n) {
-    margin-right: 0;
-    margin-left: -10vw;
-    h4 {
-      align-self: center;
-    }
-  }
-
-  p {
-    margin: 0;
-  }
-
-  h4,
-  p {
-    font-size: 3vw;
-    line-height: 4vw;
-    span {
-      margin: auto;
-    }
-  }
-
-  .subheader {
-    display: grid;
-    .date {
-      max-width: 100%;
-      margin: auto;
-    }
-  }
-}
-
-.triangular.subheaderless .subheader {
+.subheaderless .subheader {
   display: block;
   margin: calc(7vw - 0.5vw) 0;
 }
@@ -166,6 +161,7 @@ const cardClass = computed(() => ({
 .img-holder {
   grid-row: 1 / 3;
   position: relative;
+
   img {
     position: absolute;
     top: 50%;
@@ -180,9 +176,11 @@ const cardClass = computed(() => ({
     0.2vw 0.2vw 0.1vw #bdbdbd,
     -0.1vw -0.1vw 0.1vw #bdbdbd;
   background: #e8e8e8;
+
   &:hover {
     background: #fff;
   }
+
   p {
     .date {
       border: 0.2vw solid rgba(0, 0, 0, 0.4);
@@ -194,6 +192,7 @@ const cardClass = computed(() => ({
   color: #ef9a9a;
   background: #333;
   cursor: auto;
+
   &:hover {
     background: #333;
   }
@@ -203,6 +202,7 @@ const cardClass = computed(() => ({
   color: #b39ddb;
   background: #333;
   cursor: auto;
+
   &:hover {
     background: #1a1a1a;
   }
@@ -213,7 +213,8 @@ const cardClass = computed(() => ({
     max-width: 7vw;
     max-height: 7vw;
   }
-  .triangular {
+
+  .card {
     &:nth-of-type(2n-1) {
       margin-right: -12vw;
     }
@@ -233,135 +234,145 @@ const cardClass = computed(() => ({
 
 @media (min-width: 720px) and (max-width: 1023px) {
   .card {
-    h4,
-    p {
-      font-size: 2.5vw;
-      line-height: 3vw;
-    }
-  }
-  .triangular h4,
-  .triangular p {
-    font-size: 1.8vw;
-    line-height: 2.2vw;
-  }
-  .triangular {
     /* 12vw 48vw 4vw medium */
     /* 0 60vw 10vw small */
     width: 48vw;
     height: 48vw;
+
     /* 0.625 */
     &:nth-of-type(4n-2),
     &:nth-of-type(4n-1) {
       grid-template-rows: 8vw 16vw 17.568vw;
     }
+
     &:nth-of-type(4n),
     &:nth-of-type(4n + 1) {
       grid-template-rows: 17.568vw 16vw 8vw;
     }
+
     &:nth-of-type(n + 3) {
       margin-top: -3.432vw;
     }
+
     &:nth-of-type(2n-1) {
       margin-left: 12vw;
       margin-right: -11vw;
     }
+
     &:nth-of-type(2n) {
       margin-right: 12vw;
       margin-left: -11vw;
+    }
+
+    h4,
+    p {
+      font-size: 2vw;
+      line-height: 2vw;
     }
   }
 }
 
 @media (min-width: 1024px) {
   .card {
-    &:nth-of-type(2n) {
-      margin-right: 5vw;
-    }
-    &:nth-of-type(2n + 1) {
-      margin-left: 5vw;
-    }
-    h4,
-    p {
-      font-size: 1.5vw;
-      line-height: 1vw;
-    }
-  }
-  .card.triangular {
     /* 12vw 48vw 4vw medium */
     /* 0 60vw 10vw small */
     width: 30vw;
     height: 30vw;
 
-    h4,
-    p {
-      font-size: 1.2vw;
-      line-height: 1.4vw;
-    }
-
+    /* 2, 4, 6, 8 */
     &:nth-of-type(2n) {
       grid-template-rows: 5vw 10vw 10.98vw;
       clip-path: polygon(0% 0%, 100% 0%, 50% 86.6%);
+
       .img-holder {
         grid-row: 3 / 4;
+
+        img {
+          top: 25% !important;
+        }
       }
+
       h4 {
         grid-row: 1 / 2;
+        margin: 2vw 0 1vw;
       }
+
       .subheader {
         grid-row: 2 / 3;
-      }
-      .img-holder img {
-        top: 25%;
+
+        .date {
+          grid-row: 2 / 3;
+        }
       }
     }
+
+    /* 1, 3, 5, 7 */
     &:nth-of-type(2n + 1) {
       grid-template-rows: 10.98vw 10vw 5vw;
       clip-path: polygon(0% 86.6%, 100% 86.6%, 50% 0);
+
       .img-holder {
         grid-row: 1 / 2;
       }
+
       h4 {
         grid-row: 3 / 4;
+        margin: 1vw 0 2vw;
       }
+
       .subheader {
         grid-row: 2 / 3;
+
+        .date {
+          grid-row: 1 / 2;
+        }
       }
+
       .img-holder img {
-        top: 75%;
+        top: 75% !important;
       }
     }
+
+    /* 2, 5 ,8 */
     &:nth-of-type(3n + 2) {
       margin-left: -5vw;
       margin-right: -5vw;
     }
-    &:nth-of-type(6n-5) {
-      margin-top: 4.03vw;
-    }
-    &:nth-of-type(6n-4) {
-      margin-top: 0.98vw;
-    }
-    &:nth-of-type(6n-3) {
-      margin-top: 4.03vw;
-    }
-    &:nth-of-type(6n-2) {
-      margin-top: 0.98vw;
-    }
+
+    /* 1, 7 */
+    /* 3 */
+    /* 5 */
+    &:nth-of-type(6n-5),
+    &:nth-of-type(6n-3),
     &:nth-of-type(6n-1) {
       margin-top: 4.03vw;
     }
+
+    /* 2, 8 */
+    /* 4 */
+    /* 6 */
+    &:nth-of-type(6n-4),
+    &:nth-of-type(6n-2),
     &:nth-of-type(6n) {
       margin-top: 0.98vw;
     }
-    &:nth-of-type(6n + 8) {
-      margin-top: 0.98vw;
-    }
+
+    /* 1, 7 */
     &:nth-of-type(3n + 1) {
       margin-left: 15vw;
       margin-right: -5vw;
     }
+
+    /* 3, 6 */
     &:nth-of-type(3n) {
       margin-right: 15vw;
       margin-left: -5vw;
+    }
+
+    h4,
+    p {
+      font-size: 1.4vw;
+      line-height: 1.4vw;
     }
   }
 }
