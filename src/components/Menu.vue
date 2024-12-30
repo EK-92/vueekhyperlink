@@ -71,48 +71,6 @@ p {
   transform: rotate(-90deg);
 }
 
-<<<<<<< HEAD
-.list {
-  padding: 0;
-  list-style: none;
-  margin: 0 0 0 30vw;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  width: 60vw;
-
-  button,
-  a {
-    font-size: 4.5vw;
-    line-height: 4vw;
-    align-self: center;
-    justify-self: center;
-    padding: 2vw 4vw;
-    text-decoration: none;
-    color: #7cb342;
-    background: #313131;
-    box-shadow:
-      0.2vw 0.2vw 0.1vw 0.1vw #111,
-      -0.1vw -0.1vw 0.1vw 0.1vw #111;
-    cursor: pointer;
-
-    &:hover {
-      background: #111;
-    }
-  }
-
-  .router-link-active {
-    display: none;
-    color: #7f7f7f;
-    pointer-events: none;
-    cursor: default;
-  }
-}
-
-.list.long {
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-=======
->>>>>>> main
 
 menu.light {
   .toggle {
