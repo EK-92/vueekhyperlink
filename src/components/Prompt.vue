@@ -10,6 +10,7 @@ defineProps(['input'])
 
 const store = genericStore()
 const { darkTheme } = storeToRefs(store)
+const { toggleTheme } = store
 
 const themeClass = computed(() => ({
   light: !darkTheme.value
@@ -17,7 +18,14 @@ const themeClass = computed(() => ({
 </script>
 
 <template>
-  <p class="prompt" :class="themeClass"><span><span class="shell">user@ek:~$ </span>{{ input }}</span><a href="https://www.linkedin.com/in/ek92/" target="blank"><img alt="linkedin" :src="linkedin" /></a><a href="https://github.com/EK-92" target="blank"><img alt="github" :src="github" /></a></p>
+  <div class="prompt" :class="themeClass">
+    <span><span class="shell">user@ek:~$ </span>{{ input }}</span>
+    <a href="https://www.linkedin.com/in/ek92/" target="blank"><img alt="linkedin" :src="linkedin" /></a>
+    <a href="https://github.com/EK-92" target="blank"><img alt="github" :src="github" /></a>
+    <div @click="toggleTheme" class="toggle">
+      <span>&#9703;</span>
+    </div>
+  </div>
 </template>
 
 <style scoped>
@@ -31,22 +39,34 @@ const themeClass = computed(() => ({
   margin: 0;
   background: #171717;
   display: grid;
-  grid-template-columns: 72vw 10vw 10vw;
+  grid-template-columns: 70vw 8vw 8vw 8vw;
 
   span {
-    margin-top: 2.5vw;
+    margin-top: 1.5vw;
     margin-left: 0.75vw;
   }
+
   .shell {
     color: #eee;
   }
+
   a {
     padding: 2vw;
     margin-left: 1vw;
   }
+
   img {
     max-width: 4vw;
-    /* padding: 0; */
+  }
+
+  .toggle {
+    text-align: center;
+    text-decoration: none;
+    width: 4vw;
+    height: 4vw;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 1.5vw auto;
   }
 }
 
@@ -63,12 +83,19 @@ const themeClass = computed(() => ({
     font-size: 2vw;
     line-height: 2.5vw;
     padding: 1vw 0;
-    grid-template-columns: 80vw 7.5vw 7.5vw;
+    grid-template-columns: 75vw 7.5vw 7.5vw 7.5vw;
   }
+
   img {
     max-width: 2.5vw !important;
-    padding: 0.25vw 0 !important;
-    
+    padding: 0 !important;
+
+  }
+  .toggle {
+    margin: 2.25vw auto !important;
+  }
+  span {
+    margin-top: 2vw !important;
   }
 }
 </style>
