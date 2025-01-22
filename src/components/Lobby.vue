@@ -35,7 +35,6 @@ const themeClass = computed(() => ({
 .profile {
   display: grid;
   grid-template-columns: 55% 45%;
-  max-height: calc(100vh - 4.5vw);
 }
 
 .name {
