@@ -3,8 +3,8 @@ import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import { genericStore } from '@/stores/generic'
 
-import github from "@/assets/github.png";
-import linkedin from "@/assets/linkedin.png";
+import github from '@/assets/github.png'
+import linkedin from '@/assets/linkedin.png'
 
 defineProps(['input'])
 
@@ -39,7 +39,7 @@ const themeClass = computed(() => ({
   background: #171717;
   display: grid;
   grid-template-columns: 75vw 7.5vw 7.5vw 7.5vw;
-  
+
   .mainline {
     text-align: left;
     margin: 2vw;
@@ -98,7 +98,6 @@ const themeClass = computed(() => ({
 
   img {
     max-width: 4vw;
-
   }
   .toggle {
     margin: 1.5vw auto;
