@@ -4,7 +4,7 @@ import { computed } from 'vue'
 import { genericStore } from '@/stores/generic'
 import Chartacter from '@/components/Chartacter.vue'
 
-import logo from "@/assets/logo.png";
+import logo from '@/assets/logo.png'
 
 defineProps(['input'])
 
@@ -26,8 +26,7 @@ const themeClass = computed(() => ({
       <h3>Location: Toronto, ON</h3>
       <Chartacter />
     </div>
-    <div class="silhouette">
-    </div>
+    <div class="silhouette"></div>
   </div>
 </template>
 
@@ -35,7 +34,6 @@ const themeClass = computed(() => ({
 .profile {
   display: grid;
   grid-template-columns: 55% 45%;
-  max-height: calc(100vh - 4.5vw);
 }
 
 .name {
