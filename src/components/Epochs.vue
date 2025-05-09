@@ -2,13 +2,13 @@
 import { ref } from 'vue'
 import Epoch from '@/components/Epoch.vue'
 
-import SheridanPic from '@/assets/sheridan.png'
+import SheridanPic from '@/assets/sheridan.webp'
 import TSLPic from '@/assets/tsl.svg'
-import CICPic from '@/assets/cic.png'
-import CICShadedPic from '@/assets/cicShaded.png'
-import EmeritusPic from '@/assets/emeritus.png'
-import RewardopsPic from '@/assets/rewardops.png'
-import OpenPic from '@/assets/open.png'
+import CICPic from '@/assets/cic.webp'
+import CICShadedPic from '@/assets/cicShaded.webp'
+import EmeritusPic from '@/assets/emeritus.webp'
+import RewardopsPic from '@/assets/rewardops.webp'
+import OpenPic from '@/assets/open.webp'
 
 const cards = ref([
   {

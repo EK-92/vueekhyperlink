@@ -4,7 +4,7 @@ import { computed } from 'vue'
 import { genericStore } from '@/stores/generic'
 import Chartacter from '@/components/Chartacter.vue'
 
-import logo from '@/assets/logo.png'
+import logo from '@/assets/logo.webp'
 
 defineProps(['input'])
 
@@ -71,7 +71,7 @@ const themeClass = computed(() => ({
 }
 
 .silhouette {
-  background: no-repeat center/80% url('@/assets/silhouette.png');
+  background: no-repeat center/80% url('@/assets/silhouette.webp');
   filter: drop-shadow(2px 1px 2px #bdbdbd) drop-shadow(0px 0px 1px #bdbdbd);
   height: calc(100vh - 5vw);
   grid-column-start: 2;
