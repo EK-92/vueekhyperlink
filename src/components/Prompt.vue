@@ -3,8 +3,8 @@ import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import { genericStore } from '@/stores/generic'
 
-import github from '@/assets/github.png'
-import linkedin from '@/assets/linkedin.png'
+import github from '@/assets/github.webp'
+import linkedin from '@/assets/linkedin.webp'
 
 defineProps(['input'])
 

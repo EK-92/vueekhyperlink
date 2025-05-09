@@ -1,4 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Ubuntu+Mono');
+@font-face {
+  font-family: "Lato";
+  src:
+    local("Lato"),
+    url("lato-latin.woff2") format("woff");
+}
+
+@font-face {
+  font-family: "Ubuntu+Mono";
+  src:
+    local("Ubuntu+Mono"),
+    url("ubuntu-mono-latin.woff2") format("woff");
+}
 
 body {
   margin: 0 auto;
