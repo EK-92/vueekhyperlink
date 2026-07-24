@@ -21,8 +21,7 @@ const themeClass = computed(() => ({
     <div class="name">
       <img alt="logo" :src="logo" />
       <h1>Efim Krakhalev (EK)</h1>
-      <h3>Site Reliability Engineer</h3>
-      <h3>Also Front-end Developer</h3>
+      <h3>Front-end Developer & SRE</h3>
       <h3>Location: Toronto, ON</h3>
       <Chartacter />
     </div>
