@@ -8,6 +8,7 @@ import CICPic from '@/assets/cic.webp'
 import CICShadedPic from '@/assets/cicShaded.webp'
 import EmeritusPic from '@/assets/emeritus.webp'
 import RewardopsPic from '@/assets/rewardops.webp'
+import ArbelosPic from '@/assets/arbelos.webp'
 import OpenPic from '@/assets/open.webp'
 
 const cards = ref([
@@ -43,7 +44,7 @@ const cards = ref([
     header: 'RewardOps',
     subheader: 'Site Reliability Engineer',
     link: 'https://rewardops.com/',
-    date: '2021-2023',
+    date: '2021-2025',
     pic: RewardopsPic
   },
   {
@@ -52,6 +53,13 @@ const cards = ref([
     date: '2022-current',
     link: '',
     pic: CICPic
+  },
+  {
+    header: 'Arbelos',
+    subheader: 'Site Reliability Engineer',
+    link: 'https://www.arbelosinteractive.com/',
+    date: '2025-2026',
+    pic: ArbelosPic
   },
   {
     header: 'Your Company',
