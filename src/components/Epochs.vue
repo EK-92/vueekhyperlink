@@ -35,7 +35,7 @@ const cards = ref([
   },
   {
     header: 'RewardOps',
-    subheader: 'Front-end development',
+    subheader: 'Full-stack development',
     link: 'https://rewardops.com/',
     date: '2018-2021',
     pic: RewardopsPic
